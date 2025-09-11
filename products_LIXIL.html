@@ -4,34 +4,111 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>株式会社LIXIL おすすめ商品 - WEBビジネス提案会</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header{background:rgba(255,255,255,.95);padding:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.1);position:sticky;top:0}.wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:700;font-size:18px;color:#333}.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}.main{max-width:1200px;margin:0 auto;padding:28px 20px}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:28px;box-shadow:0 16px 32px rgba(0,0,0,.12)}.center{text-align:center}.brand{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:12px}.brand-emoji{font-size:40px}.brand-name{font-size:26px;font-weight:800;color:#333}.title{font-size:22px;font-weight:800;color:#333;text-align:center;margin:12px 0 6px}.subtitle{text-align:center;color:#666;margin-bottom:20px}.staff{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:16px;border-radius:12px;margin:14px 0}.staff img{width:72px;height:72px;border-radius:50%;object-fit:cover}.staff .meta{display:flex;flex-direction:column}.staff .name{font-weight:800;color:#333}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}.gallery img{width:100%;height:150px;object-fit:cover;border-radius:10px;box-shadow:0 8px 16px rgba(0,0,0,.08)}.desc{color:#444;line-height:1.8;margin:10px 0 16px}.links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:10px 0}.btn{padding:12px 18px;border-radius:22px;text-decoration:none;color:#fff;font-weight:700}.primary{background:linear-gradient(45deg,#4ecdc4,#44a08d)}.secondary{background:linear-gradient(45deg,#ff6b6b,#ee5a24)}.video{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;background:#000;margin-top:18px}.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header{background:rgba(255,255,255,.95);padding:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.1);position:sticky;top:0}.wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:700;font-size:18px;color:#333}.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}.main{max-width:1200px;margin:0 auto;padding:28px 20px}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:28px;box-shadow:0 16px 32px rgba(0,0,0,.12)}.center{text-align:center}.brand{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:12px}.brand-emoji{font-size:40px}.brand-name{font-size:26px;font-weight:800;color:#333}.title{font-size:22px;font-weight:800;color:#333;text-align:center;margin:12px 0 6px}.subtitle{text-align:center;color:#666;margin-bottom:20px}
+/* スタッフエリアを写真+コメントの2カラムにし、写真をコメント高に追従させる */
+.staff{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:16px;border-radius:12px;margin:14px 0}
+.staff img{width:100%;aspect-ratio:1/1;border-radius:50%;object-fit:cover}
+.staff .meta{display:flex;flex-direction:column;gap:8px}
+.staff .name{font-weight:800;color:#333}
+/* 吹き出し風コメント */
+.comment{position:relative;background:#fff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+.comment:before{content:"";position:absolute;left:-10px;top:18px;border-width:10px;border-style:solid;border-color:transparent #fff transparent transparent;filter:drop-shadow(0 2px 2px rgba(0,0,0,.06))}
+/* 画像 + キャプション */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:150px;object-fit:cover;border-radius:10px;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.gallery figcaption{margin-top:6px;font-size:13px;color:#555;text-align:center}
+.desc{color:#444;line-height:1.8;margin:10px 0 16px}.links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:10px 0}.btn{padding:12px 18px;border-radius:22px;text-decoration:none;color:#fff;font-weight:700}.primary{background:linear-gradient(45deg,#4ecdc4,#44a08d)}.secondary{background:linear-gradient(45deg,#ff6b6b,#ee5a24)}.video{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;background:#000;margin-top:18px}.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
 <div class="header"><div class="wrap"><div class="logo">🛍️ おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
+
 <div class="main"><div class="card">
   <div class="center">
     <div class="brand"><div class="brand-emoji">🏠</div><div class="brand-name">株式会社LIXIL</div></div>
     <div class="title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
-    <div class="subtitle">取付けも、デザイン変更も簡単にできる
-「エコカラットセルフ」</div>
+    <div class="subtitle">取付けも、デザイン変更も簡単にできる<br>「エコカラットセルフ」</div>
   </div>
-  <div class="staff"><img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者"><div class="meta"><div class="name">担当：LWT東京中央第2営業所 所長
 
-大塚 大介 様</div><div class="comment">エコカラットセルフはDIYで簡単に取り付けられるエコカラットです。
-調湿・消臭機能はそのままに、豊富なデザインとカラーでお部屋のアクセントや模様替えに最適。
-特別な工具は不要で手軽に理想の空間を実現できます。エコカラットセルフで快適な住まいをあなたの手で！</div></div></div>
-  <div class="gallery">
-    <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+1" alt="商品1">
-    <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+2" alt="商品2">
-    <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+3" alt="商品3">
+  <div class="staff">
+    <img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者">
+    <div class="meta">
+      <div class="name">担当：LWT東京中央第2営業所 所長<br>大塚 大介 様</div>
+      <div class="comment">
+        エコカラットセルフはDIYで簡単に取り付けられるエコカラットです。<br>
+        調湿・消臭機能はそのままに、豊富なデザインとカラーでお部屋のアクセントや模様替えに最適。<br>
+        特別な工具は不要で手軽に理想の空間を実現できます。エコカラットセルフで快適な住まいをあなたの手で！
+      </div>
+    </div>
   </div>
+
+  <div class="gallery">
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+1" alt="商品1">
+      <figcaption>製品A：貼ってはがせる高意匠パネル（人気カラーをラインアップ）</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+2" alt="商品2">
+      <figcaption>製品B：調湿×消臭機能で快適空間をキープする基本セット</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+3" alt="商品3">
+      <figcaption>製品C：コーナーや小面積にも使いやすいアクセントタイル</figcaption>
+    </figure>
+  </div>
+
   <div class="desc">窓・ドアから水まわりまで、住まい全体の課題をワンストップで解決。省エネ・断熱・メンテナンス性を向上させる製品を取り揃えています。</div>
-  <div class="links"><a class="btn primary" href="https://www.ecocarat.jp/products/ecocarat_self/" onclick="alert('公式商品ページへ移動します')">商品動画ページへ</a><a class="btn secondary" href="https://www.youtube.com/watch?v=DE5sJi_HvQs" onclick="alert('商品動画ページへ移動します')">商品動画ページへ</a></div>
+  <div class="links">
+    <a class="btn primary" href="https://www.ecocarat.jp/products/ecocarat_self/">商品ページへ</a>
+    <a class="btn secondary" href="https://www.youtube.com/watch?v=DE5sJi_HvQs">商品動画ページへ</a>
+  </div>
+
+  <div class="video"><iframe src="https://www.youtube.com/embed/DE5sJi_HvQs" allowfullscreen></iframe></div>
+
+  <!-- 2つ目の商品（同じ構成を下にコピー） -->
+  <hr style="border:none;height:1px;background:rgba(0,0,0,.08);margin:28px 0">
+
+  <div class="center">
+    <div class="brand"><div class="brand-emoji">🏠</div><div class="brand-name">株式会社LIXIL</div></div>
+    <div class="title">暮らしをさらに快適にするアップグレードのご提案</div>
+    <div class="subtitle">工具いらずでスマートに模様替え</div>
+  </div>
+
+  <div class="staff">
+    <img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者">
+    <div class="meta">
+      <div class="name">担当：LWT東京中央第2営業所 所長<br>大塚 大介 様</div>
+      <div class="comment">
+        リフォーム現場でも扱いやすい仕様で、短工期と高い仕上がり品質を両立します。<br>
+        はじめての方でも安心の施工ガイド付きで、失敗しにくく美しく仕上がります。
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+4" alt="商品4">
+      <figcaption>製品D：広い面積にも対応する大判パネル</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+5" alt="商品5">
+      <figcaption>製品E：曲面・端部の仕上げを美しくする専用アクセサリ</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+6" alt="商品6">
+      <figcaption>製品F：汚れに強いトップコート仕様でメンテナンス性UP</figcaption>
+    </figure>
+  </div>
+
+  <div class="desc">耐久性と施工性のバランスに優れたシリーズ。賃貸・分譲・戸建ての幅広いシーンで選ばれています。</div>
+  <div class="links">
+    <a class="btn primary" href="https://www.ecocarat.jp/products/ecocarat_self/">商品ページへ</a>
+    <a class="btn secondary" href="https://www.youtube.com/watch?v=DE5sJi_HvQs">商品動画ページへ</a>
+  </div>
+
+  <div class="video"><iframe src="https://www.youtube.com/embed/DE5sJi_HvQs" allowfullscreen></iframe></div>
+
 </div></div>
 </body>
-
-</html> 
-
-
-
+</html>
