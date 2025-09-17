@@ -206,6 +206,16 @@
         <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
     </div>
 
+    <!-- slideshow insert -->
+    <div class="slider-wrap">
+        <div id="slider" class="slider">
+            <!-- 画像はJSで挿入されます -->
+            <button class="nav prev" aria-label="前へ">‹</button>
+            <button class="nav next" aria-label="次へ">›</button>
+            <div class="dots" id="sliderDots"></div>
+        </div>
+    </div>
+
     <div class="booth-grid">
         <div class="booth">
             <div class="booth-logo">🚿</div>
@@ -304,6 +314,77 @@
             // 実際の実装例:
             // window.open(`products_company${companyId}.html`, "_blank");
         }
+         // --- slideshow logic ---
+        const sliderImages = [
+            // ここに8枚の画像URLを設定してください（例はプレースホルダー）
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600",
+            "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1600",
+            "https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?w=1600",
+            "https://images.unsplash.com/photo-1496307042752-3362690f2d57?w=1600",
+            "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?w=1600",
+            "https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=1600",
+            "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600",
+            "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1600"
+        ];
+
+        function initSlider() {
+            const slider = document.getElementById('slider');
+            const dotsWrap = document.getElementById('sliderDots');
+            if (!slider || !dotsWrap) return;
+
+            // スライド生成
+            sliderImages.forEach((src, idx) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide' + (idx === 0 ? ' active' : '');
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `スライド${idx + 1}`;
+                slide.appendChild(img);
+                slider.insertBefore(slide, slider.querySelector('.prev'));
+
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (idx === 0 ? ' active' : '');
+                dot.dataset.index = String(idx);
+                dotsWrap.appendChild(dot);
+            });
+
+            let current = 0;
+            let timer = null;
+
+            function show(index) {
+                const slides = slider.querySelectorAll('.slide');
+                const dots = dotsWrap.querySelectorAll('.dot');
+                slides.forEach((s, i) => s.classList.toggle('active', i === index));
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                current = index;
+            }
+
+            function next() { show((current + 1) % sliderImages.length); }
+            function prev() { show((current - 1 + sliderImages.length) % sliderImages.length); }
+
+            function play() {
+                stop();
+                timer = setInterval(next, 4000);
+            }
+            function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+            slider.querySelector('.next')?.addEventListener('click', () => { next(); play(); });
+            slider.querySelector('.prev')?.addEventListener('click', () => { prev(); play(); });
+            dotsWrap.addEventListener('click', (e) => {
+                const t = e.target;
+                if (t && t.classList.contains('dot')) {
+                    const i = Number(t.dataset.index || 0);
+                    show(i);
+                    play();
+                }
+            });
+
+            slider.addEventListener('mouseenter', stop);
+            slider.addEventListener('mouseleave', play);
+
+            play();
+        }
+        // --- /slideshow logic ---
 
         // ページ読み込み時のアニメーション
         window.addEventListener("load", function() {
