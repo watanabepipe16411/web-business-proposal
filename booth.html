@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -34,6 +34,69 @@
             font-size: 1.1rem;
             opacity: 0.9;
         }
+
+        /* --- slideshow styles --- */
+        .slider-wrap {
+            max-width: 1200px;
+            margin: 20px auto 40px;
+        }
+        .slider {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .slider .slide { display: none; }
+        .slider .slide.active { display: block; animation: fade 0.8s ease; }
+        .slider .slide img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .slider .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            transition: background 0.2s ease;
+        }
+        .slider .nav:hover { background: rgba(0, 0, 0, 0.5); }
+        .slider .prev { left: 12px; }
+        .slider .next { right: 12px; }
+        .slider .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+        .slider .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .slider .dot.active { transform: scale(1.2); background: #fff; }
+        @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+        /* --- /slideshow styles --- */
 
         .booth-grid {
             display: grid;
@@ -196,7 +259,10 @@
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
-        <div class="particle"></div>
+
+
+
+  <div class="particle"></div>
     </div>
 
     <button class="back-btn" onclick="goBack()"> 戻る</button>
@@ -216,7 +282,7 @@
         </div>
     </div>
 
-    <div class="booth-grid">
+     <div class="booth-grid">
         <div class="booth">
             <div class="booth-logo">🚿</div>
             <div class="booth-title">TOTO株式会社</div>
@@ -314,10 +380,11 @@
             // 実際の実装例:
             // window.open(`products_company${companyId}.html`, "_blank");
         }
-         // --- slideshow logic ---
+
+        // --- slideshow logic ---
         const sliderImages = [
             // ここに8枚の画像URLを設定してください（例はプレースホルダー）
-            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_1100.JPG",
+            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600",
             "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1600",
             "https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?w=1600",
             "https://images.unsplash.com/photo-1496307042752-3362690f2d57?w=1600",
@@ -388,6 +455,7 @@
 
         // ページ読み込み時のアニメーション
         window.addEventListener("load", function() {
+            initSlider();
             const booths = document.querySelectorAll(".booth");
             booths.forEach((booth, index) => {
                 booth.style.opacity = "0";
@@ -398,9 +466,6 @@
                     booth.style.transform = "translateY(0)";
                 }, index * 100);
             });
-              // ここでスライドショー初期化を呼び出す
-    initSlider();
-});
         });
     </script>
 </body>
