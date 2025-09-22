@@ -149,24 +149,25 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
 
 </div></div>
 
-<script>
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('img').forEach(function(img){
-    img.loading = 'lazy';
-    img.referrerPolicy = 'no-referrer';
-    img.crossOrigin = 'anonymous';
-    img.addEventListener('error', function(){
-      if (img.dataset.fallbackApplied === '1') return;
-      try{
-        var u = new URL(img.src);
-        var proxied = 'https://images.weserv.nl/?url=' + encodeURIComponent(u.host + u.pathname + u.search) + '&w=0&h=0&fit=inside&we=1';
-        img.dataset.fallbackApplied = '1';
-        img.src = proxied;
-      }catch(e){}
+    <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      document.querySelectorAll('img').forEach(function(img){
+        img.loading = 'lazy';
+        img.referrerPolicy = 'no-referrer';
+        img.crossOrigin = 'anonymous';
+        img.addEventListener('error', function(){
+          if (img.dataset.fallbackApplied === '1') return;
+          try{
+            var u = new URL(img.src);
+            var proxied = 'https://images.weserv.nl/?url=' + encodeURIComponent(u.host + u.pathname + u.search) + '&w=0&h=0&fit=inside&we=1';
+            img.dataset.fallbackApplied = '1';
+            img.src = proxied;
+          }catch(e){}
+        });
+      });
     });
-  });
-});
-</script>
+    </script>
 
 </body>
 </html>
+
