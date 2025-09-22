@@ -7,15 +7,15 @@
   
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header{background:rgba(255,255,255,.95);padding:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.1);position:sticky;top:0}.wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:700;font-size:18px;color:#333}.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}.main{max-width:1200px;margin:0 auto;padding:28px 20px}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:28px;box-shadow:0 16px 32px rgba(0,0,0,.12)}.center{text-align:center}.brand{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:12px}.brand-emoji{font-size:40px}.brand-name{font-size:26px;font-weight:800;color:#333}.title{font-size:22px;font-weight:800;color:#333;text-align:center;margin:12px 0 6px}.subtitle{text-align:center;color:#666;margin-bottom:20px}
 
-/* スタッフエリアを縦並びに変更 */
-.staff{display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:20px;border-radius:12px;margin:14px 0;text-align:center}
-.staff img{width:120px;aspect-ratio:1/1;border-radius:50%;object-fit:cover;margin-bottom:12px}
-.staff .meta{display:flex;flex-direction:column;gap:12px;width:100%}
-.staff .name{font-weight:800;color:#333;margin-bottom:8px}
+/* スタッフエリアを写真+担当者名の横並び、その下に吹き出しコメント */
+.staff{display:flex;flex-direction:column;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:20px;border-radius:12px;margin:14px 0}
+.staff-top{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.staff img{width:80px;aspect-ratio:1/1;border-radius:50%;object-fit:cover;flex-shrink:0}
+.staff .name{font-weight:800;color:#333;text-align:left;flex:1}
 
 /* 吹き出し風コメント（上向き矢印に変更） */
 .comment{position:relative;background:#fff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06);margin-top:8px}
-.comment:before{content:"";position:absolute;left:50%;top:-10px;transform:translateX(-50%);border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
+.comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
 
 /* 画像 + キャプション */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
@@ -38,14 +38,14 @@
   </div>
 
   <div class="staff">
-    <img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者">
-    <div class="meta">
+    <div class="staff-top">
+      <img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者">
       <div class="name">担当：LWT東京中央第2営業所 所長<br>大塚 大介 様</div>
-      <div class="comment">
-        エコカラットセルフはDIYで簡単に取り付けられるエコカラットです。<br>
-        調湿・消臭機能はそのままに、豊富なデザインとカラーでお部屋のアクセントや模様替えに最適。<br>
-        特別な工具は不要で手軽に理想の空間を実現できます。エコカラットセルフで快適な住まいをあなたの手で！
-      </div>
+    </div>
+    <div class="comment">
+      エコカラットセルフはDIYで簡単に取り付けられるエコカラットです。<br>
+      調湿・消臭機能はそのままに、豊富なデザインとカラーでお部屋のアクセントや模様替えに最適。<br>
+      特別な工具は不要で手軽に理想の空間を実現できます。エコカラットセルフで快適な住まいをあなたの手で！
     </div>
   </div>
 
@@ -82,13 +82,13 @@
   </div>
 
   <div class="staff">
-    <img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者">
-    <div class="meta">
+    <div class="staff-top">
+      <img src="https://global.sedia-system.co.jp/files/eisui/eisui/LIXIL_shasin1.JPG" alt="担当者">
       <div class="name">担当：LWT東京中央第2営業所 所長<br>大塚 大介 様</div>
-      <div class="comment">
-        リフォーム現場でも扱いやすい仕様で、短工期と高い仕上がり品質を両立します。<br>
-        はじめての方でも安心の施工ガイド付きで、失敗しにくく美しく仕上がります。
-      </div>
+    </div>
+    <div class="comment">
+      リフォーム現場でも扱いやすい仕様で、短工期と高い仕上がり品質を両立します。<br>
+      はじめての方でも安心の施工ガイド付きで、失敗しにくく美しく仕上がります。
     </div>
   </div>
 
