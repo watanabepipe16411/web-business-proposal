@@ -24,10 +24,14 @@
 .hero img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
 .hero.half img{width:50%}
 @media (max-width:768px){.video.half{width:100%}.hero.half img{width:100%}}
+
+/* 2×2 配置用（A〜Dを2カラム×2行に） */
+.gallery.two-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0}
+@media (max-width:768px){.gallery.two-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="header"><div class="wrap"><div class="logo">��️ おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
+<div class="header"><div class="wrap"><div class="logo">おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
 
 <div class="main"><div class="card">
   <div class="center">
@@ -50,18 +54,23 @@
     </div>
   </div>
 
-  <div class="gallery">
+  <!-- A〜Dを2カラム×2行で表示 -->
+  <div class="gallery two-cols">
     <figure>
-      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+1" alt="商品1">
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+A" alt="商品A">
       <figcaption>製品A：貼ってはがせる高意匠パネル（人気カラーをラインアップ）</figcaption>
     </figure>
     <figure>
-      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+2" alt="商品2">
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+B" alt="商品B">
       <figcaption>製品B：調湿×消臭機能で快適空間をキープする基本セット</figcaption>
     </figure>
     <figure>
-      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+3" alt="商品3">
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+C" alt="商品C">
       <figcaption>製品C：コーナーや小面積にも使いやすいアクセントタイル</figcaption>
+    </figure>
+    <figure>
+      <img src="https://via.placeholder.com/640x400.png?text=LIXIL+Product+D" alt="商品D">
+      <figcaption>製品D：広い面積にも対応する大判パネル</figcaption>
     </figure>
   </div>
 
@@ -118,4 +127,3 @@
 </div></div>
 </body>
 </html>
-
