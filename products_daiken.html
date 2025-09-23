@@ -14,7 +14,7 @@
 .staff .name{font-weight:800;color:#333;text-align:left;flex:1}
 .comment{position:relative;background:#fff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06);margin-top:8px}
 .comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
-.section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px}
+.section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px;font-size:32px}
 .section-break{margin:48px auto 40px;text-align:center}
 .section-break .label{font-weight:800;color:#333;letter-spacing:.12em;font-size:14px;margin-bottom:10px;opacity:.9}
 .section-break .line{height:3px;width:68%;margin:0 auto;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.35),rgba(0,0,0,.6),rgba(0,0,0,.35),transparent)}
@@ -29,13 +29,16 @@
 .hero.half img{width:50%}
 @media (max-width:768px){.video.half{width:100%}.hero.half img{width:100%}}
 
-/* 2×2 配置用（A〜Dを2カラム×2行に） */
-.gallery.two-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0}
-@media (max-width:768px){.gallery.two-cols{grid-template-columns:1fr}}
+/* 3×1 配置用（アート、ネイチャー、ブレンドを3カラム×1行に） */
+.gallery.three-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media (max-width:768px){.gallery.three-cols{grid-template-columns:1fr}}
 
 /* 動画と「内窓…」セクションの間のスペース＋区切り線 */
 .mid-gap{height:12px}
 .mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
+
+/* タイトル部分のスタイル */
+.trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
 </style>
 </head>
 <body>
@@ -44,8 +47,11 @@
 <div class="main"><div class="card">
   <div class="center">
     <div class="brand"><div class="brand-logo"><img src="DAIKENLOGO.png" alt="大建ロゴ"></div><div class="brand-name">大建工業株式会社</div></div>
-    <div class="title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
+   
     <div class="sp-1line"></div>
+    <div class="trend-title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
+    <div class="sp-1line"></div>
+    
     <div class="subtitle"><strong>多彩な空間も、こだわりの暮らしも、
 <br>『イエリア』なら自由自在。</strong></div>
     <div class="hero half"><img src="DAIKEN.JPG" alt="The Art Line"></div>
@@ -63,7 +69,56 @@
       同じく新柄のバームブラウン柄は、ミラノサローネでも大きく取り上げられていた【モカムース】を取り入れたカラーとなります。<br>
       ぜひご検討ください。
 
-    </div>
+   </div>
+ <div class="section-lead"><strong>Standard NEW color</strong></div>
+
+  <div class="gallery three-cols">
+    <figure>
+      <img src="DAIKIN2.JPG" alt="ART -アート-">
+      <figcaption>ソフトグレージュ柄<br>より明るめのグレージュが今年のトレンドとなりますが、こちらはまさにど真ん中のカラーとなります。
+赤みを抑えた明るめのグレージュ基調で、ナチュラルに寄せた色柄をラインナップ致しました。
+他社にはない差別化が図れる製品を、スタンダードグレードにて展開いたします。
+</figcaption>
+    </figure>
+    <figure>
+      <img src="DAIKIN3.JPG" alt="NATURE -ネイチャー-">
+      <figcaption>モスブラック柄<br>これまでに無く深みのある黒で、大建工業の歴史の中で最も黒い色柄となっております。
+扉・枠の同色使用だけでなく、黒枠として他の扉柄とコーディネートすることが可能となりました。
+
+</figcaption>
+    </figure>
+    <figure>
+      <img src="DAIKIN4.JPG" alt="パウダーホワイト柄">
+      <figcaption>BLEND -ブレンド-<br>リノベセレクションというリノベーション向けカタログにてラインナップしていたカラーを、イエリアスタンダードにラインナップすることになりました。
+こちらは大建工業の歴史の中で最も白い色柄となっております。
+透明感と清涼感を演出し、様々なインテリアと調和致します。
+</figcaption>
+    </figure>
+  </div>
+
+
+     <div class="section-lead"><strong>Select NEW color</strong></div>
+
+  <div class="gallery three-cols">
+    <figure>
+      <img src="DAIKIN2.JPG" alt="ART -アート-">
+      <figcaption>バームブラウン<br>今年の4月に行われたミラノサローネでも大きく取り上げられていた【モカムース】を取り入れたカラーとなります。
+スタンダードグレードのトープグレーと併せて同系コーディネートが可能です。
+床材もイエリアフロアセレクト柄にて同色をご用意しており、上質なブラウンコーデが高級感を演出します。
+</figcaption>
+    </figure>
+    <figure>
+      <img src="DAIKIN3.JPG" alt="NATURE -ネイチャー-">
+      <figcaption>スロウベージュ柄<br>流線型のラインが特長的で、ハイドアにすることでより魅力を増す製品です。
+こちらもイエリアフロアセレクト柄にて同色をご用意しており、上質なブラウンコーデが高級感を演出します。
+</figcaption>
+    </figure>
+    <figure>
+      <img src="DAIKIN4.JPG" alt="BLEND -ブレンド-">
+      <figcaption>テラゾホワイト柄<br>テラゾー柄は商業施設などの内装で多く採用されている大理石調の柄となります。
+住宅でも家具やフロアタイルなどにバリエーションが多く、新たなインテリア展開がされている柄となります。
+</figcaption>
+    </figure>
   </div>
 
  
@@ -80,3 +135,4 @@
 
 </body>
 </html>
+
