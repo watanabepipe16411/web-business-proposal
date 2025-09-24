@@ -10,31 +10,26 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: "Arial", sans-serif;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             padding: 20px;
         }
-
         .header {
             text-align: center;
             margin-bottom: 40px;
             color: white;
         }
-
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
-
         .header p {
             font-size: 1.1rem;
             opacity: 0.9;
         }
-
         /* --- slideshow styles --- */
         .slider-wrap {
             max-width: 600px;
@@ -105,7 +100,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .booth {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
@@ -116,7 +110,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .booth::before {
             content: "";
             position: absolute;
@@ -126,37 +119,35 @@
             height: 5px;
             background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd);
         }
-
         .booth:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
-
         .booth-logo {
-            font-size: 3rem;
             margin-bottom: 15px;
+            max-width: 90px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
-
         .booth-title {
             font-size: 1.5rem;
             font-weight: bold;
             color: #333;
             margin-bottom: 10px;
         }
-
         .booth-description {
             color: #666;
             margin-bottom: 25px;
             line-height: 1.6;
         }
-
         .booth-buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
         }
-
         .btn {
             padding: 12px 25px;
             border: none;
@@ -169,22 +160,18 @@
             display: inline-block;
             min-width: 120px;
         }
-
         .btn-video {
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
         }
-
         .btn-products {
             background: linear-gradient(45deg, #4ecdc4, #44a08d);
             color: white;
         }
-
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-
         .back-btn {
             position: fixed;
             top: 20px;
@@ -199,12 +186,10 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
-
         .back-btn:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
-
         .floating-particles {
             position: fixed;
             top: 0;
@@ -214,39 +199,32 @@
             pointer-events: none;
             z-index: -1;
         }
-
         .particle {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float-particle 8s ease-in-out infinite;
         }
-
         .particle:nth-child(1) { width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s; }
         .particle:nth-child(2) { width: 15px; height: 15px; top: 40%; left: 80%; animation-delay: 2s; }
         .particle:nth-child(3) { width: 8px; height: 8px; top: 60%; left: 20%; animation-delay: 4s; }
         .particle:nth-child(4) { width: 12px; height: 12px; top: 80%; left: 70%; animation-delay: 6s; }
-
         @keyframes float-particle {
             0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
             50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
         }
-
         @media (max-width: 768px) {
             .booth-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
             .booth {
                 padding: 20px;
             }
-            
             .booth-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
             .btn {
                 width: 100%;
                 max-width: 200px;
@@ -259,19 +237,13 @@
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
-
-
-
-  <div class="particle"></div>
+        <div class="particle"></div>
     </div>
-
     <button class="back-btn" onclick="goBack()"> 戻る</button>
-
     <div class="header">
         <h1>🏢 ブース会場</h1>
         <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
     </div>
-
     <!-- slideshow insert -->
     <div class="slider-wrap">
         <div id="slider" class="slider">
@@ -282,9 +254,9 @@
         </div>
     </div>
 
-     <div class="booth-grid">
+    <div class="booth-grid">
         <div class="booth">
-            <div class="booth-logo">🚿</div>
+            <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
             <div class="booth-title">TOTO株式会社</div>
             <div class="booth-description">水まわり空間のトータルソリューションを提供する総合メーカー</div>
             <div class="booth-buttons">
@@ -292,9 +264,8 @@
                 <a href="products_TOTO.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">🏠</div>
+            <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
             <div class="booth-title">株式会社 LIXIL</div>
             <div class="booth-description">住まいと暮らしの総合住生活ソリューションカンパニー</div>
             <div class="booth-buttons">
@@ -302,9 +273,8 @@
                 <a href="products_LIXIL.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">🛁</div>
+            <img class="booth-logo" src="takarastandardlogo.png" alt="タカラスタンダード株式会社ロゴ">
             <div class="booth-title">タカラスタンダード株式会社</div>
             <div class="booth-description">高品質な水まわり製品とシステムキッチンで快適な住空間を創造</div>
             <div class="booth-buttons">
@@ -312,9 +282,8 @@
                 <a href="products_takara.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">🚪</div>
+            <img class="booth-logo" src="DAIKENLOGO.png.png" alt="大建工業株式会社ロゴ">
             <div class="booth-title">大建工業株式会社</div>
             <div class="booth-description">ドア・建具・内装材の総合メーカーとして住空間をトータルサポート</div>
             <div class="booth-buttons">
@@ -322,9 +291,8 @@
                 <a href="products_daiken.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">❄️</div>
+            <img class="booth-logo" src="DAIKINロLOGO.png.png" alt="ダイキンＨＶＡＣソリューション東京株式会社ロゴ">
             <div class="booth-title">ダイキンＨＶＡＣソリューション東京株式会社</div>
             <div class="booth-description">空調・換気システムのトータルソリューションで快適な環境を提供</div>
             <div class="booth-buttons">
@@ -332,9 +300,8 @@
                 <a href="products_daikin.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">🏡</div>
+            <img class="booth-logo" src="panalogo.png" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
             <div class="booth-title">パナソニック ハウジングソリューションズ株式会社</div>
             <div class="booth-description">住まいの総合ソリューションで豊かな住生活を実現する総合メーカー</div>
             <div class="booth-buttons">
@@ -342,9 +309,8 @@
                 <a href="products_panasonic.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">🔥</div>
+            <img class="booth-logo" src="noritzlogo.png" alt="株式会社ノーリツロゴ">
             <div class="booth-title">株式会社ノーリツ</div>
             <div class="booth-description">給湯器・ガス器具のリーディングカンパニーとして快適な住環境を提供</div>
             <div class="booth-buttons">
@@ -352,9 +318,8 @@
                 <a href="products_noritz.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        
         <div class="booth">
-            <div class="booth-logo">🌳</div>
+            <img class="booth-logo" src="images/logo_woodtec.png" alt="朝日ウッドテック株式会社ロゴ">
             <div class="booth-title">朝日ウッドテック株式会社</div>
             <div class="booth-description">高品質な木材・建材で自然と調和した住空間を創造する専門メーカー</div>
             <div class="booth-buttons">
@@ -362,8 +327,8 @@
                 <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-                 <div class="booth">
-            <div class="booth-logo">🌳</div>
+        <div class="booth">
+            <img class="booth-logo" src="sedia.png.png" alt="渡辺パイプ株式会社ロゴ">
             <div class="booth-title">渡辺パイプ株式会社</div>
             <div class="booth-description">ミラノサローネ最前線で取材してきました！</div>
             <div class="booth-buttons">
@@ -377,19 +342,16 @@
         function goBack() {
             window.location.href = "index.html";
         }
-
         function openVideo(companyId) {
             alert(`会社${companyId}のセミナー動画ページを開きます。\n\n実際の実装では、各会社の動画ページに遷移します。`);
             // 実際の実装例:
             // window.open(`video_company${companyId}.html`, "_blank");
         }
-
         function openProducts(companyId) {
             alert(`会社${companyId}のおすすめ商品ページを開きます。\n\n実際の実装では、各会社の商品ページに遷移します。`);
             // 実際の実装例:
             // window.open(`products_company${companyId}.html`, "_blank");
         }
-
         // --- slideshow logic ---
         const sliderImages = [
             // ここに8枚の画像URLを設定してください（例はプレースホルダー）
@@ -402,12 +364,10 @@
             "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600",
             "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1600"
         ];
-
         function initSlider() {
             const slider = document.getElementById('slider');
             const dotsWrap = document.getElementById('sliderDots');
             if (!slider || !dotsWrap) return;
-
             // スライド生成
             sliderImages.forEach((src, idx) => {
                 const slide = document.createElement('div');
@@ -417,16 +377,13 @@
                 img.alt = `スライド${idx + 1}`;
                 slide.appendChild(img);
                 slider.insertBefore(slide, slider.querySelector('.prev'));
-
                 const dot = document.createElement('div');
                 dot.className = 'dot' + (idx === 0 ? ' active' : '');
                 dot.dataset.index = String(idx);
                 dotsWrap.appendChild(dot);
             });
-
             let current = 0;
             let timer = null;
-
             function show(index) {
                 const slides = slider.querySelectorAll('.slide');
                 const dots = dotsWrap.querySelectorAll('.dot');
@@ -434,16 +391,13 @@
                 dots.forEach((d, i) => d.classList.toggle('active', i === index));
                 current = index;
             }
-
             function next() { show((current + 1) % sliderImages.length); }
             function prev() { show((current - 1 + sliderImages.length) % sliderImages.length); }
-
             function play() {
                 stop();
                 timer = setInterval(next, 4000);
             }
             function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
             slider.querySelector('.next')?.addEventListener('click', () => { next(); play(); });
             slider.querySelector('.prev')?.addEventListener('click', () => { prev(); play(); });
             dotsWrap.addEventListener('click', (e) => {
@@ -454,14 +408,11 @@
                     play();
                 }
             });
-
             slider.addEventListener('mouseenter', stop);
             slider.addEventListener('mouseleave', play);
-
             play();
         }
         // --- /slideshow logic ---
-
         // ページ読み込み時のアニメーション
         window.addEventListener("load", function() {
             initSlider();
