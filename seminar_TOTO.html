@@ -31,12 +31,24 @@
                 grid-template-columns: 1fr;
             }
         }
+        .link-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .link-btn-title {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
         .link-btn-img {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 120px;
+            height: 240px; /* 2倍に変更（元:120px） */
             border-radius: 15px;
             overflow: hidden;
             background: #f0f0f0;
@@ -82,26 +94,37 @@
             <div class="link-section">
                 <h2 class="link-title">🔗 関連リンク</h2>
                 <div class="links-grid">
-                    <a href="https://jp.toto.com/list/products/toilet/toilet_movie/" class="link-btn-img" target="_blank" rel="noopener">
-                        <img src="TOTOtoilet.JPG" alt="トイレ">
-                    </a>
-                    <a href="https://jp.toto.com/list/products/kitchen/kitchen_movie/" class="link-btn-img" target="_blank" rel="noopener">
-                        <img src="TOTOkitchen.JPG" alt="キッチン">
-                    </a>
-                    <a href="https://jp.toto.com/list/products/bath/bath_movie/" class="link-btn-img" target="_blank" rel="noopener">
-                        <img src="TOTObath.JPG" alt="シバスルーム">
-                    </a>
-                    <a href="https://jp.toto.com/list/products/groom/groom_movie/" class="link-btn-img" target="_blank" rel="noopener">
-                        <img src="TOTOsenmen.JPG" alt="洗面化粧台">
-                    </a>
+                    <div class="link-item">
+                        <div class="link-btn-title">トイレ</div>
+                        <a href="https://jp.toto.com/" class="link-btn-img" target="_blank" rel="noopener">
+                            <img src="images/toto_hp_btn.png" alt="トイレ">
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <div class="link-btn-title">キッチン</div>
+                        <a href="https://jp.toto.com/products/" class="link-btn-img" target="_blank" rel="noopener">
+                            <img src="images/toto_products_btn.png" alt="キッチン">
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <div class="link-btn-title">バスルーム</div>
+                        <a href="https://jp.toto.com/showroom/" class="link-btn-img" target="_blank" rel="noopener">
+                            <img src="images/toto_showroom_btn.png" alt="バスルーム">
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <div class="link-btn-title">洗面化粧台</div>
+                        <a href="https://jp.toto.com/innovation/" class="link-btn-img" target="_blank" rel="noopener">
+                            <img src="images/toto_innovation_btn.png" alt="洗面化粧台">
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="action-buttons">
                 <a href="products_TOTO.html" class="action-btn btn-primary">🛍️ おすすめ商品を見る</a>
-
+                <a href="#" class="action-btn btn-secondary" onclick="alert('資料をダウンロードします')">📄 資料をダウンロード</a>
             </div>
         </div>
     </div>
 </body>
 </html>
-
