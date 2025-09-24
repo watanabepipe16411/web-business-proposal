@@ -11,18 +11,37 @@ body{
   min-height:100vh;
 }
 body, html { height: 100%; }
+.header{
+  width: 100%;
+  background:rgba(255,255,255,.95);
+  padding:16px 0;
+  box-shadow:0 4px 16px rgba(0,0,0,.1);
+  position:sticky;
+  top:0;
+  z-index: 1000;
+}
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{font-weight:700;font-size:18px;color:#333}
+.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}
 .main {
   max-width:1200px;
   margin:0 auto;
-  padding:28px 20px;
-  min-height:100vh;
+  padding: 64px 20px 28px 20px; /* 上パディングをヘッダー分追加 */
+  min-height:calc(100vh - 0px); /* 高さの計算からヘッダーは考慮不要、paddingで調整 */
 }
 .card {
-  background:rgba(255,255,255,1);  /* 完全な白背景に */
+  background:rgba(255,255,255,1);
   border-radius:20px;
   padding:28px;
   box-shadow:0 16px 32px rgba(0,0,0,.12);
-  min-height: calc(100vh - 100px); /* ヘッダー分を引いて下まで白 */
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -49,7 +68,7 @@ body, html { height: 100%; }
   color:#333;
   box-shadow:0 6px 14px rgba(0,0,0,.06);
   margin-top:8px;
-  text-align:left; /* 左寄せに変更 */
+  text-align:left;
 }
 .comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
 .section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px;font-size:20px}
@@ -80,19 +99,14 @@ body, html { height: 100%; }
 .hero img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
 .hero.half img{width:50%}
 @media (max-width:768px){.video.half{width:100%}.hero.half img{width:100%}}
-/* 3×1 配置用（3カラム×1行に） */
 .gallery.three-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
 @media (max-width:768px){.gallery.three-cols{grid-template-columns:1fr}}
-/* 4×1 配置用（4カラム×1行に） */
 .gallery.four-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0;}
 @media (max-width:1024px){.gallery.four-cols{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:600px){.gallery.four-cols{grid-template-columns:1fr}}
-/* 動画と「内窓…」セクションの間のスペース＋区切り線 */
 .mid-gap{height:12px}
 .mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
-/* タイトル部分のスタイル */
 .trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
-/* 画像ボタン用スタイル */
 .image-button-link {
   display: flex;
   justify-content: center;
@@ -130,7 +144,12 @@ body, html { height: 100%; }
 </style>
 </head>
 <body>
-<div class="header"><div class="wrap"><div class="logo">おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
+<div class="header">
+  <div class="wrap">
+    <div class="logo">おすすめ商品 | WEBビジネス提案会</div>
+    <a class="back" href="booth.html">← ブース会場に戻る</a>
+  </div>
+</div>
 
 <div class="main"><div class="card">
   <div class="center">
@@ -242,4 +261,3 @@ body, html { height: 100%; }
 </div>
 </body>
 </html>
-
