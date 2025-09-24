@@ -4,26 +4,138 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>タカラスタンダード株式会社 おすすめ商品 - WEBビジネス提案会</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header{background:rgba(255,255,255,.95);padding:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.1);position:sticky;top:0}.wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:700;font-size:18px;color:#333}.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}.main{max-width:1200px;margin:0 auto;padding:28px 20px}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:28px;box-shadow:0 16px 32px rgba(0,0,0,.12)}.center{text-align:center}.brand{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:12px}.brand-emoji{font-size:40px}.brand-name{font-size:26px;font-weight:800;color:#333}.title{font-size:22px;font-weight:800;color:#333;text-align:center;margin:12px 0 6px}.subtitle{text-align:center;color:#666;margin-bottom:20px}.staff{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:16px;border-radius:12px;margin:14px 0}.staff img{width:72px;height:72px;border-radius:50%;object-fit:cover}.staff .meta{display:flex;flex-direction:column}.staff .name{font-weight:800;color:#333}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}.gallery img{width:100%;height:150px;object-fit:cover;border-radius:10px;box-shadow:0 8px 16px rgba(0,0,0,.08)}.desc{color:#444;line-height:1.8;margin:10px 0 16px}.links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:10px 0}.btn{padding:12px 18px;border-radius:22px;text-decoration:none;color:#fff;font-weight:700}.primary{background:linear-gradient(45deg,#4ecdc4,#44a08d)}.secondary{background:linear-gradient(45deg,#ff6b6b,#ee5a24)}.video{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;background:#000;margin-top:18px}.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+  
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header{background:rgba(255,255,255,.95);padding:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.1);position:sticky;top:0}.wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:700;font-size:18px;color:#333}.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}.main{max-width:1200px;margin:0 auto;padding:28px 20px}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:28px;box-shadow:0 16px 32px rgba(0,0,0,.12)}.center{text-align:center}.brand{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;margin-bottom:12px}.brand-emoji{display:none}.brand-logo img{max-width:220px;height:auto;display:block;margin:0 auto}.brand-name{font-size:26px;font-weight:800;color:#333}.title{font-size:22px;font-weight:800;color:#333;text-align:center;margin:12px 0 6px}.subtitle{text-align:center;color:#666;margin-bottom:20px}
+.sp-1line{height:1em}
+.subtitle b,.subtitle strong{font-weight:800;color:#333;font-size:24px}
+.staff{display:flex;flex-direction:column;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:20px;border-radius:12px;margin:14px 0}
+.staff-top{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.staff img{width:80px;aspect-ratio:1/1;border-radius:50%;object-fit:cover;flex-shrink:0}
+.staff .name{font-weight:800;color:#333;text-align:left;flex:1}
+.comment{position:relative;background:#fff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06);margin-top:8px}
+.comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
+.section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px;font-size:20px}
+.section-break{margin:48px auto 40px;text-align:center}
+.section-break .label{font-weight:800;color:#333;letter-spacing:.12em;font-size:14px;margin-bottom:10px;opacity:.9}
+.section-break .line{height:3px;width:68%;margin:0 auto;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.35),rgba(0,0,0,.6),rgba(0,0,0,.35),transparent)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:300px;object-fit:contain;background:#fff;border-radius:10px;box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.gallery figcaption{margin-top:6px;font-size:13px;color:#555;text-align:center;white-space:pre-line;line-height:1.6}
+.desc{color:#444;line-height:1.8;margin:10px 0 16px}.links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:10px 0}.btn{padding:12px 18px;border-radius:22px;text-decoration:none;color:#fff;font-weight:700}.primary{background:linear-gradient(45deg,#4ecdc4,#44a08d)}.secondary{background:linear-gradient(45deg,#ff6b6b,#ee5a24)}.video{position:relative;aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden;background:#000;margin-top:18px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.video.half{width:50%;margin:18px auto 0}
+.hero{display:flex;justify-content:center;margin:12px 0 18px}
+.hero img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.hero.half img{width:50%}
+@media (max-width:768px){.video.half{width:100%}.hero.half img{width:100%}}
+
+/* 3×1 配置用（3カラム×1行に） */
+.gallery.three-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media (max-width:768px){.gallery.three-cols{grid-template-columns:1fr}}
+
+/* 動画と「内窓…」セクションの間のスペース＋区切り線 */
+.mid-gap{height:12px}
+.mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
+
+/* タイトル部分のスタイル */
+.trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
+/* 画像ボタン用スタイル */
+.image-button-link {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto 0;
+  width: 50%;
+  min-width: 220px;
+}
+.image-button-link img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+.image-button-link img:hover {
+  transform: scale(1.04);
+  opacity: 0.92;
+}
+@media (max-width:768px){
+  .image-button-link {width: 100%;}
+}
 </style>
 </head>
 <body>
-<div class="header"><div class="wrap"><div class="logo">🛍️ おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
+<div class="header"><div class="wrap"><div class="logo">おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
+
 <div class="main"><div class="card">
   <div class="center">
-    <div class="brand"><div class="brand-emoji">🛁</div><div class="brand-name">タカラスタンダード株式会社</div></div>
-    <div class="title">ホーローの力で暮らしを美しく</div>
-    <div class="subtitle">清掃性・耐久性・デザイン性を兼ね備えた水まわり</div>
+    <div class="brand"><div class="brand-logo"><img src="takarastandardlogo.ai" alt="タカラスタンダードロゴ"></div><div class="brand-name">タカラスタンダード株式会社</div></div>
+    
+    <div class="sp-1line"></div>
+    <div class="trend-title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
+    <div class="sp-1line"></div>
+    
+    <div class="subtitle"><strong>毎日使うものが、環境配慮にもなる。<br>
+ノーリツなら、環境性と省エネ性を両立。<br>ハイブリッド給湯器「HPHBR290」</strong></div>
+    <div class="hero half"><img src="noritz1.jpg" alt="The Art Line"></div>
   </div>
-  <div class="staff"><img src="https://via.placeholder.com/144x144.png?text=Staff" alt="担当者"><div class="meta"><div class="name">担当：中村 次郎</div><div class="comment">ホーロー素材の魅力を最大限に。長く愛用いただける品質をぜひご体感ください。</div></div></div>
-  <div class="gallery">
-    <img src="https://via.placeholder.com/640x400.png?text=Takara+Product+1" alt="商品1">
-    <img src="https://via.placeholder.com/640x400.png?text=Takara+Product+2" alt="商品2">
-    <img src="https://via.placeholder.com/640x400.png?text=Takara+Product+3" alt="商品3">
+
+  <div class="staff">
+    <div class="staff-top">
+      <img src="takarastandardshasin.jpg"="担当者">
+      <div class="name">東京支社　東京東営業所<br>辻　悠祐 様</div>
+    </div>
+    <div class="comment">
+パワーアップした商品を3点ご紹介します！<br>
+売れ筋No1ホーローシステムキッチン「トレーシア」<br>
+ついに登場！”家事らくシンク×クォーツ天板”見た目よし、使い勝手よし、価格よし！イイとこ取りの最強キッチン！<br>
+システムバス「グランスパ」<br>
+インクジェット技術による唯一無二の新デザインで“機能もデザインも両方で納得”ワンランク上の浴室革命始まります！<br>
+ホーロー洗面化粧台「ファミーユ」　<br>
+もっと自分らしく、快適に。インテリアに溶け込むようモデルチェンジ。アウトベイシンや造作風スタイルまで幅広いニーズをキャッチ！<br>
+今後も進化し続けるタカラスタンダードにご期待ください！
+
+    </div>
+    
   </div>
-  <div class="desc">キッチン・バス・洗面化粧台など、日々のメンテナンスが楽になるホーロー製品を中心にラインアップ。耐久性が高く、長期使用でも美しさを維持します。</div>
-  <div class="links"><a class="btn primary" href="#" onclick="alert('公式商品ページへ移動します')">公式商品ページへ</a><a class="btn secondary" href="#" onclick="alert('カタログPDFをダウンロードします')">カタログをダウンロード</a></div>
-  <div class="video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe></div>
+
+    <div class="links">
+    <a class="btn secondary" href="takarastandard.pdf">新商品チラシへ</a>
+  </div>
+  
+ <div class="section-lead"><strong>新商品特長</strong></div>
+
+  <div class="gallery three-cols">
+    <figure>
+      <img src="noritz2.jpg" alt="使う">
+      <figcaption>業界No.1の環境性・<br>業界トップクラスの省エネ性</figcaption>
+    </figure>
+    <figure>
+      <img src="noritz3.jpg" alt="気づく">
+      <figcaption>お客さまの<br>暮しを変える新機能
+</figcaption>
+    </figure>
+    <figure>
+      <img src="noritz4.jpg" alt="変わる">
+      <figcaption>流通事業者様向けに<br>ご提案しやすく、施工しやすく
+</figcaption>
+    </figure>
+   
+  </div>
+ 
+  <div class="links">
+    <a class="btn primary" href="https://jp.toto.com/pages/knowledge/campaign/dailywellness/">商品ページへ</a>
+  </div>
+
+  <!-- ↓↓↓ ここを画像ボタンに変更 ↓↓↓ -->
+  <a class="image-button-link" href="https://watanabepipe16411.github.io/web-business-proposal/seminar_noritz.html"_blank" rel="noopener">
+    <img src="noritzS.JPG" alt="動画を見る" />
+  </a>
+  <!-- ↑↑↑ 画像ボタンここまで ↑↑↑ -->
+
 </div></div>
+
+
+
 </body>
-</html> 
+</html>
