@@ -18,30 +18,40 @@
         .company-name { font-size: 2.5rem; font-weight: bold; color: #333; margin-bottom: 15px; }
         .company-description { font-size: 1.2rem; color: #666; line-height: 1.6; }
 
-        .video-section { margin-bottom: 40px; }
-        .video-title { font-size: 1.8rem; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; }
-        .videos-grid {
+        .link-section { margin-bottom: 40px; }
+        .link-title { font-size: 1.8rem; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; }
+        .links-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 10px;
         }
         @media (max-width: 800px) {
-            .videos-grid {
+            .links-grid {
                 grid-template-columns: 1fr;
             }
         }
-        .video-container-multi {
-            position: relative;
+        .link-btn-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding-bottom: 56.25%;
-            background: #000;
+            height: 120px;
             border-radius: 15px;
             overflow: hidden;
+            background: #f0f0f0;
+            transition: box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+            border: none;
         }
-        .video-container-multi iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: none;
+        .link-btn-img:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .link-btn-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
         }
 
         .seminar-info { background: #f8f9fa; border-radius: 15px; padding: 30px; margin-bottom: 30px; }
@@ -69,29 +79,28 @@
                 <div class="company-name">TOTO株式会社</div>
                 <div class="company-description">水まわり空間のトータルソリューションを提供する総合メーカー</div>
             </div>
-            <div class="video-section">
-                <h2 class="video-title">🎬 セミナー動画</h2>
-                <div class="videos-grid">
-                    <div class="video-container-multi">
-                        <iframe src="https://jp.toto.com/list/products/toilet/toilet_movie/" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-container-multi">
-                        <iframe src="https://jp.toto.com/list/products/kitchen/kitchen_movie/" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-container-multi">
-                        <iframe src="https://jp.toto.com/list/products/bath/bath_movie/" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-container-multi">
-                        <iframe src="https://jp.toto.com/list/products/groom/groom_movie/" allowfullscreen></iframe>
-                    </div>
+            <div class="link-section">
+                <h2 class="link-title">🔗 関連リンク</h2>
+                <div class="links-grid">
+                    <a href="https://jp.toto.com/list/products/toilet/toilet_movie/" class="link-btn-img" target="_blank" rel="noopener">
+                        <img src="TOTOtoilet.JPG" alt="トイレ">
+                    </a>
+                    <a href="https://jp.toto.com/list/products/kitchen/kitchen_movie/" class="link-btn-img" target="_blank" rel="noopener">
+                        <img src="TOTOkitchen.JPG" alt="キッチン">
+                    </a>
+                    <a href="https://jp.toto.com/list/products/bath/bath_movie/" class="link-btn-img" target="_blank" rel="noopener">
+                        <img src="TOTObath.JPG" alt="シバスルーム">
+                    </a>
+                    <a href="https://jp.toto.com/list/products/groom/groom_movie/" class="link-btn-img" target="_blank" rel="noopener">
+                        <img src="TOTOsenmen.JPG" alt="洗面化粧台">
+                    </a>
                 </div>
             </div>
             <div class="action-buttons">
                 <a href="products_TOTO.html" class="action-btn btn-primary">🛍️ おすすめ商品を見る</a>
-                <a href="#" class="action-btn btn-secondary" onclick="alert('資料をダウンロードします')">📄 資料をダウンロード</a>
+
             </div>
         </div>
     </div>
 </body>
 </html>
-
