@@ -25,7 +25,6 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 .staff-top{display:flex;align-items:center;gap:16px;margin-bottom:12px}
 .staff img{width:80px;aspect-ratio:1/1;border-radius:50%;object-fit:cover;flex-shrink:0}
 .staff .name{font-weight:800;color:#333;text-align:left;flex:1}
-/* 吹き出しコメント部分 左揃え */
 .comment{
   position:relative;
   background:#fff;
@@ -35,7 +34,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   color:#333;
   box-shadow:0 6px 14px rgba(0,0,0,.06);
   margin-top:8px;
-  text-align:left; /* ←左揃え */
+  text-align:left;
 }
 .comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
 .section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px;font-size:20px}
@@ -52,7 +51,6 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 .primary{background:linear-gradient(45deg,#4ecdc4,#44a08d)}
 .secondary{
   background:linear-gradient(45deg,#ff6b6b,#ee5a24);
-  /* ↓目立たせて大きく */
   font-size: 1.5rem;
   padding: 20px 40px;
   border-radius: 32px;
@@ -70,7 +68,6 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video.half{width:50%;margin:18px auto 0}
 .hero{display:flex;justify-content:center;margin:12px 0 18px}
-/* ★★★ 3商品イメージの高さ統一（takarastandard2.JPGに合わせる） ★★★ */
 .hero-sameheight {
   display: flex;
   justify-content: center;
@@ -78,7 +75,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 }
 .hero-sameheight img {
   width: auto;
-  height: 230px;      /* 必要に応じてここを調整。takarastandard2.JPGの高さに。*/
+  height: 230px;
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,.12);
@@ -91,18 +88,56 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   .hero-sameheight img {height: 120px;}
 }
 
-/* 3×1 配置用（3カラム×1行に） */
+/* トレーシア画像説明 横並び&高さ1/4 */
+.treasia-gallery-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 18px 0;
+}
+.treasia-gallery-row figure {
+  flex: 1 1 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.treasia-gallery-row img {
+  width: 100%;
+  max-width: 180px;
+  height: 75px;  /* 高さを従来の1/4に（300px → 75px） */
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.07);
+}
+.treasia-gallery-row figcaption {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .treasia-gallery-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .treasia-gallery-row img {
+    max-width: 100%;
+    height: 56px;
+  }
+}
+
 .gallery.three-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
 @media (max-width:768px){.gallery.three-cols{grid-template-columns:1fr}}
 
-/* 動画と「内窓…」セクションの間のスペース＋区切り線 */
 .mid-gap{height:12px}
 .mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
 
-/* タイトル部分のスタイル */
 .trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
 
-/* 画像ボタン用スタイル */
 .image-button-link {
   display: flex;
   justify-content: center;
@@ -126,7 +161,6 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   .image-button-link {width: 100%;}
 }
 
-/* ★★★ ジャンプボタン横並び ★★★ */
 .product-jump-links {
   display: flex;
   justify-content: center;
@@ -170,20 +204,17 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 </head>
 <body>
 <div class="header"><div class="wrap"><div class="logo">おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
-
 <div class="main"><div class="card">
   <div class="center">
     <div class="brand"><div class="brand-logo"><img src="takarastandardlogo.jpg" alt="タカラスタンダードロゴ"></div><div class="brand-name">タカラスタンダード株式会社</div></div>
     <div class="sp-1line"></div>
     <div class="trend-title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
     <div class="sp-1line"></div>
-    <!-- ★★★ ジャンプボタン横並びここから ★★★ -->
     <div class="product-jump-links">
       <a class="jump-btn" href="#treasia">トレーシア</a>
       <a class="jump-btn" href="#granspa">グランスパ</a>
       <a class="jump-btn" href="#famile">ファミーユ</a>
     </div>
-    <!-- ★★★ ジャンプボタン横並びここまで ★★★ -->
     <div class="staff">
       <div class="staff-top">
         <img src="takarastandardshasin.jpg" alt="担当者">
@@ -203,88 +234,69 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
     <div class="links">
       <a class="btn secondary" href="takarastandard.pdf">新商品チラシへ</a>
     </div>
-
-<!-- ↓↓↓ 商品部分 3回繰り返し（画像高さ統一） ↓↓↓ -->
-  <!-- 1回目 -->
-  <div id="treasia" class="subtitle"><strong>My Treasure,My Treasia<br>
-わたしの一番好きな場所<br>「トレーシア」</strong></div>
-  <div class="hero-sameheight"><img src="takarastandard1.JPG" alt="トレーシア"></div>
-  <div class="section-lead"><strong>毎日の家事をらくにする、うれしい"工夫"がいっぱい</strong></div>
-  <div class="gallery three-cols">
-    <figure>
-      <img src="takarastandard4.JPG" alt="使う">
-      <figcaption>らくらくお手入れ<br>ホーローだから手間いらず
-    <figure>
-      <img src="takarastandard5.JPG" alt="気づく">
-      <figcaption>らくらく収納<br>たっぷりがうれしい
-</figcaption>
-    </figure>
-    <figure>
-      <img src="takarastandard6.JPG" alt="変わる">
-      <figcaption>らくらく調理<br>効率アップがうれしい
-</figcaption>
-    </figure>
-  </div>
-  <div class="links">
-    <a class="btn primary" href="https://www.takara-standard.co.jp/product/system_kitchen/treasia/">商品ページへ</a>
-  </div>
-  <!-- 2回目 -->
-  <div id="granspa" class="subtitle"><strong>毎日をちょっと特別に<br>
-家族みんなでおうちスパ。<br>「グランスパ」</strong></div>
-  <div class="hero-sameheight"><img src="takarastandard2.JPG" alt="グランスパ"></div>
-  <div class="section-lead"><strong>新商品特長</strong></div>
-  <div class="gallery three-cols">
-    <figure>
-      <img src="noritz2.jpg" alt="使う">
-      <figcaption>業界No.1の環境性・<br>業界トップクラスの省エネ性</figcaption>
-    </figure>
-    <figure>
-      <img src="noritz3.jpg" alt="気づく">
-      <figcaption>お客さまの<br>暮しを変える新機能
-</figcaption>
-    </figure>
-    <figure>
-      <img src="noritz4.jpg" alt="変わる">
-      <figcaption>流通事業者様向けに<br>ご提案しやすく、施工しやすく
-</figcaption>
-    </figure>
-  </div>
-  <div class="links">
-    <a class="btn primary" href="https://www.takara-standard.co.jp/product/system_bath/granspa/">商品ページへ</a>
-  </div>
-  <!-- 3回目 -->
-  <div id="famile" class="subtitle"><strong>もっと心地よく、もっと自分らしく。<br>「ファミーユ」</strong></div>
-  <div class="hero-sameheight"><img src="takarastandard3.JPG" alt="ファミーユ"></div>
-  <div class="section-lead"><strong>新商品特長</strong></div>
-  <div class="gallery three-cols">
-    <figure>
-      <img src="noritz2.jpg" alt="使う">
-      <figcaption>業界No.1の環境性・<br>業界トップクラスの省エネ性</figcaption>
-    </figure>
-    <figure>
-      <img src="noritz3.jpg" alt="気づく">
-      <figcaption>お客さまの<br>暮しを変える新機能
-</figcaption>
-    </figure>
-    <figure>
-      <img src="noritz4.jpg" alt="変わる">
-      <figcaption>流通事業者様向けに<br>ご提案しやすく、施工しやすく
-</figcaption>
-    </figure>
-  </div>
-  <div class="links">
-    <a class="btn primary" href="https://www.takara-standard.co.jp/product/dressing_table/famile/">商品ページへ</a>
-  </div>
-<!-- ↑↑↑ 商品部分 3回繰り返し（画像高さ統一） ↑↑↑ -->
-
-  <!-- ↓↓↓ ここを画像ボタンに変更 ↓↓↓ -->
-  <a class="image-button-link" href="https://watanabepipe16411.github.io/web-business-proposal/seminar_takara.html" target="_blank" rel="noopener">
-    <img src="takarastandardD.JPG" alt="動画を見る" />
-  </a>
-  <!-- ↑↑↑ 画像ボタンここまで ↑↑↑ -->
-
-</div></div>
-
+    <!-- トレーシア -->
+    <div id="treasia" class="subtitle"><strong>My Treasure,My Treasia<br>わたしの一番好きな場所<br>「トレーシア」</strong></div>
+    <div class="hero-sameheight"><img src="takarastandard1.JPG" alt="トレーシア"></div>
+    <div class="section-lead"><strong>毎日の家事をらくにする、うれしい"工夫"がいっぱい</strong></div>
+    <div class="treasia-gallery-row">
+      <figure>
+        <img src="takarastandard4.JPG" alt="らくらくお手入れ">
+        <figcaption>らくらくお手入れ<br>ホーローだから手間いらず</figcaption>
+      </figure>
+      <figure>
+        <img src="takarastandard5.JPG" alt="らくらく収納">
+        <figcaption>らくらく収納<br>たっぷりがうれしい</figcaption>
+      </figure>
+      <figure>
+        <img src="takarastandard6.JPG" alt="らくらく調理">
+        <figcaption>らくらく調理<br>効率アップがうれしい</figcaption>
+      </figure>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="https://www.takara-standard.co.jp/product/system_kitchen/treasia/">商品ページへ</a>
+    </div>
+    <!-- グランスパ -->
+    <div id="granspa" class="subtitle"><strong>毎日をちょっと特別に<br>家族みんなでおうちスパ。<br>「グランスパ」</strong></div>
+    <div class="hero-sameheight"><img src="takarastandard2.JPG" alt="グランスパ"></div>
+    <div class="section-lead"><strong>新商品特長</strong></div>
+    <div class="gallery three-cols">
+      <figure>
+        <img src="noritz2.jpg" alt="使う">
+        <figcaption>業界No.1の環境性・<br>業界トップクラスの省エネ性</figcaption>
+      </figure>
+      <figure>
+        <img src="noritz3.jpg" alt="気づく">
+        <figcaption>お客さまの<br>暮しを変える新機能</figcaption>
+      </figure>
+      <figure>
+        <img src="noritz4.jpg" alt="変わる">
+        <figcaption>流通事業者様向けに<br>ご提案しやすく、施工しやすく</figcaption>
+      </figure>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="https://www.takara-standard.co.jp/product/system_bath/granspa/">商品ページへ</a>
+    </div>
+    <!-- ファミーユ -->
+    <div id="famile" class="subtitle"><strong>もっと心地よく、もっと自分らしく。<br>「ファミーユ」</strong></div>
+    <div class="hero-sameheight"><img src="takarastandard3.JPG" alt="ファミーユ"></div>
+    <div class="section-lead"><strong>新商品特長</strong></div>
+    <div class="gallery three-cols">
+      <figure>
+        <img src="takarastandard7.JPG" alt="使う">
+        <figcaption>3つのタイプから選べるから<br>あなたの理想やこだわりがきっと叶う</figcaption>
+      </figure>
+      <figure>
+        <img src="takarastandard8.JPG" alt="気づく">
+        <figcaption>ファミーユは<br>大間口やぴったりサイズにも対応</figcaption>
+      </figure>
+     
+    </div>
+    <div class="links">
+      <a class="btn primary" href="https://www.takara-standard.co.jp/product/dressing_table/famile/">商品ページへ</a>
+    </div>
+    <a class="image-button-link" href="https://watanabepipe16411.github.io/web-business-proposal/seminar_takara.html" target="_blank" rel="noopener">
+      <img src="takarastandardD.JPG" alt="動画を見る" />
+    </a>
+  </div></div>
 </body>
 </html>
-
