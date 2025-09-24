@@ -101,6 +101,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 
 /* タイトル部分のスタイル */
 .trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
+
 /* 画像ボタン用スタイル */
 .image-button-link {
   display: flex;
@@ -124,6 +125,47 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 @media (max-width:768px){
   .image-button-link {width: 100%;}
 }
+
+/* ★★★ ジャンプボタン横並び ★★★ */
+.product-jump-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 24px 0 18px 0;
+}
+.jump-btn {
+  background: linear-gradient(45deg,#4ecdc4,#44a08d);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 14px 38px;
+  border-radius: 28px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(76,205,196,0.14);
+  letter-spacing: 0.03em;
+  transition: transform 0.14s, box-shadow 0.14s, background 0.14s;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+.jump-btn:hover {
+  background: linear-gradient(45deg,#44a08d,#4ecdc4);
+  transform: scale(1.07);
+  box-shadow: 0 8px 32px rgba(76,205,196,0.22);
+}
+@media (max-width: 768px) {
+  .product-jump-links {
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0 12px 0;
+  }
+  .jump-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -135,6 +177,13 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
     <div class="sp-1line"></div>
     <div class="trend-title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
     <div class="sp-1line"></div>
+    <!-- ★★★ ジャンプボタン横並びここから ★★★ -->
+    <div class="product-jump-links">
+      <a class="jump-btn" href="#treasia">トレーシア</a>
+      <a class="jump-btn" href="#granspa">グランスパ</a>
+      <a class="jump-btn" href="#famile">ファミーユ</a>
+    </div>
+    <!-- ★★★ ジャンプボタン横並びここまで ★★★ -->
     <div class="staff">
       <div class="staff-top">
         <img src="takarastandardshasin.jpg" alt="担当者">
@@ -157,7 +206,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 
 <!-- ↓↓↓ 商品部分 3回繰り返し（画像高さ統一） ↓↓↓ -->
   <!-- 1回目 -->
-  <div class="subtitle"><strong>My Treasure,My Treasia<br>
+  <div id="treasia" class="subtitle"><strong>My Treasure,My Treasia<br>
 わたしの一番好きな場所<br>「トレーシア」</strong></div>
   <div class="hero-sameheight"><img src="takarastandard1.JPG" alt="トレーシア"></div>
   <div class="section-lead"><strong>新商品特長</strong></div>
@@ -181,7 +230,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
     <a class="btn primary" href="https://www.takara-standard.co.jp/product/system_kitchen/treasia/">商品ページへ</a>
   </div>
   <!-- 2回目 -->
-  <div class="subtitle"><strong>毎日をちょっと特別に<br>
+  <div id="granspa" class="subtitle"><strong>毎日をちょっと特別に<br>
 家族みんなでおうちスパ。<br>「グランスパ」</strong></div>
   <div class="hero-sameheight"><img src="takarastandard2.JPG" alt="グランスパ"></div>
   <div class="section-lead"><strong>新商品特長</strong></div>
@@ -205,7 +254,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
     <a class="btn primary" href="https://www.takara-standard.co.jp/product/system_bath/granspa/">商品ページへ</a>
   </div>
   <!-- 3回目 -->
-  <div class="subtitle"><strong>もっと心地よく、もっと自分らしく。<br>「ファミーユ」</strong></div>
+  <div id="famile" class="subtitle"><strong>もっと心地よく、もっと自分らしく。<br>「ファミーユ」</strong></div>
   <div class="hero-sameheight"><img src="takarastandard3.JPG" alt="ファミーユ"></div>
   <div class="section-lead"><strong>新商品特長</strong></div>
   <div class="gallery three-cols">
