@@ -4,7 +4,6 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>株式会社LIXIL おすすめ商品 - WEBビジネス提案会</title>
 <style>
-  
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh}.header{background:rgba(255,255,255,.95);padding:16px 0;box-shadow:0 4px 16px rgba(0,0,0,.1);position:sticky;top:0}.wrap{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:700;font-size:18px;color:#333}.back{background:linear-gradient(45deg,#ff6b6b,#ee5a24);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none}.main{max-width:1200px;margin:0 auto;padding:28px 20px}.card{background:rgba(255,255,255,.96);border-radius:20px;padding:28px;box-shadow:0 16px 32px rgba(0,0,0,.12)}.center{text-align:center}.brand{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;margin-bottom:12px}.brand-emoji{display:none}.brand-logo img{max-width:220px;height:auto;display:block;margin:0 auto}.brand-name{font-size:26px;font-weight:800;color:#333}.title{font-size:22px;font-weight:800;color:#333;text-align:center;margin:12px 0 6px}.subtitle{text-align:center;color:#666;margin-bottom:20px}
 .sp-1line{height:1em}
 .subtitle b,.subtitle strong{font-weight:800;color:#333;font-size:24px}
@@ -36,6 +35,28 @@
 /* 動画と「内窓…」セクションの間のスペース＋区切り線 */
 .mid-gap{height:12px}
 .mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
+
+/* 追加：トレンド下の2ボタン横並び */
+.trend-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 18px 0 8px;
+}
+.trend-buttons .btn {
+  min-width: 180px;
+  font-size: 16px;
+}
+@media (max-width:600px) {
+  .trend-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .trend-buttons .btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
 </style>
 </head>
 <body>
@@ -46,9 +67,14 @@
     <div class="brand"><div class="brand-logo"><img src="LIXILlogo.png" alt="LIXILロゴ"></div><div class="brand-name">株式会社LIXIL</div></div>
         <div class="sp-1line"></div>
     <div class="trend-title">今、押さえておきたいトレンドをメーカー担当者が熱く語ります</div>
+    <!-- ▼ ここに2ボタンを横並びで追加 -->
+    <div class="trend-buttons">
+      <a href="#ecocarat-self" class="btn primary">エコカラットセルフ</a>
+      <a href="#inplus" class="btn secondary">インプラス</a>
+    </div>
     <div class="sp-1line"></div>
     <div class="subtitle"><strong>取付けも、デザイン変更も簡単にできる<br>「エコカラットセルフ」</strong></div>
-    <div class="hero half"><img src="ECOCARATtatle.JPG" alt="エコカラットセルフ"></div>
+    <div class="hero half" id="ecocarat-self"><img src="ECOCARATtatle.JPG" alt="エコカラットセルフ"></div>
   </div>
 
   <div class="staff">
@@ -101,7 +127,7 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
   </div>
 
   <div class="center">
-    <div class="title">内窓で、季節に合わせた心地よさ。<br>
+    <div class="title" id="inplus">内窓で、季節に合わせた心地よさ。<br>
     『インプラス』</div>
     <div class="hero half"><img src="inplus1.JPG" alt="インプラス"></div>
   </div>
@@ -149,15 +175,5 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
 
 </div></div>
 
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
