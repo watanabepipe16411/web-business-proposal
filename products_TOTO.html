@@ -39,6 +39,29 @@
 
 /* タイトル部分のスタイル */
 .trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
+/* 画像ボタン用スタイル */
+.image-button-link {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto 0;
+  width: 50%;
+  min-width: 220px;
+}
+.image-button-link img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  transition: transform 0.15s;
+  cursor: pointer;
+}
+.image-button-link img:hover {
+  transform: scale(1.04);
+  opacity: 0.92;
+}
+@media (max-width:768px){
+  .image-button-link {width: 100%;}
+}
 </style>
 </head>
 <body>
@@ -70,7 +93,7 @@
     </div>
     
   </div>
- <div class="section-lead"><strong>「デイリーウェルネス」のサイクルで 健康が無理なく、自然に続けられてより健やかな日常へ</strong></div>
+ <div class="section-lead"><strong>「デイリーウェルネス」のサイクルで<br> 健康が無理なく、自然に続けられてより健やかな日常へ</strong></div>
 
   <div class="gallery three-cols">
     <figure>
@@ -93,7 +116,11 @@
     <a class="btn secondary" href="TOTO.pdf">カタログダウンロード</a>
   </div>
 
- <div class="video half"><iframe src="https://www.youtube.com/embed/rMQRQZrlzDo" allowfullscreen></iframe></div>
+  <!-- ↓↓↓ ここを画像ボタンに変更 ↓↓↓ -->
+  <a class="image-button-link" href="https://jp.toto.com/list/products/toilet/toilet_movie/" target="_blank" rel="noopener">
+    <img src="TOTOtoilet.jpg" alt="動画を見る" />
+  </a>
+  <!-- ↑↑↑ 画像ボタンここまで ↑↑↑ -->
 
 </div></div>
 
@@ -101,5 +128,3 @@
 
 </body>
 </html>
-
-
