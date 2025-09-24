@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -17,10 +17,33 @@
         .company-logo { font-size: 4rem; margin-bottom: 20px; }
         .company-name { font-size: 2.5rem; font-weight: bold; color: #333; margin-bottom: 15px; }
         .company-description { font-size: 1.2rem; color: #666; line-height: 1.6; }
+
         .video-section { margin-bottom: 40px; }
         .video-title { font-size: 1.8rem; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; }
-        .video-container { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: #000; border-radius: 15px; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .videos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 800px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .video-container-multi {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .video-container-multi iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
+        }
+
         .seminar-info { background: #f8f9fa; border-radius: 15px; padding: 30px; margin-bottom: 30px; }
         .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .info-item { text-align: center; }
@@ -48,18 +71,26 @@
             </div>
             <div class="video-section">
                 <h2 class="video-title">🎬 セミナー動画</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <div class="videos-grid">
+                    <div class="video-container-multi">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container-multi">
+                        <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container-multi">
+                        <iframe src="https://www.youtube.com/embed/C0DPdy98e4c" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-container-multi">
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+                    </div>
                 </div>
-
             </div>
             <div class="action-buttons">
                 <a href="products_TOTO.html" class="action-btn btn-primary">🛍️ おすすめ商品を見る</a>
-                <a href="#" class="action-btn btn-secondary" onclick="alert(
-資料をダウンロードします)">📄 資料をダウンロード</a>
+                <a href="#" class="action-btn btn-secondary" onclick="alert('資料をダウンロードします')">📄 資料をダウンロード</a>
             </div>
         </div>
     </div>
 </body>
 </html>
-
