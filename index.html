@@ -1,173 +1,196 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBビジネス提案会 2025</title>
+    <title>ブース会場 - WEBビジネス提案会</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: "Arial", sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
+            padding: 20px;
         }
-
-        .container {
+        .header {
             text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #666;
             margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .entrance-btn {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 20px 50px;
-            font-size: 1.3rem;
-            font-weight: bold;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        /* --- slideshow styles --- */
+        .slider-wrap {
+            max-width: 600px;
+            margin: 20px auto 40px;
+        }
+        .slider {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .slider .slide { display: none; }
+        .slider .slide.active { display: block; animation: fade 0.8s ease; }
+        .slider .slide img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .slider .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
             border: none;
-            border-radius: 50px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
             cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            transition: background 0.2s ease;
+        }
+        .slider .nav:hover { background: rgba(0, 0, 0, 0.5); }
+        .slider .prev { left: 12px; }
+        .slider .next { right: 12px; }
+        .slider .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+        .slider .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .slider .dot.active { transform: scale(1.2); background: #fff; }
+        @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+        /* --- /slideshow styles --- */
+
+        .booth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .booth {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
             position: relative;
             overflow: hidden;
         }
-
-        .entrance-btn::before {
+        .booth::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .entrance-btn:hover::before {
-            left: 100%;
-        }
-
-        .entrance-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
-        }
-
-        .entrance-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .password-modal {
-            display: none;
-            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd);
+        }
+        .booth:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        .booth-logo {
+            margin-bottom: 15px;
+            max-width: 90px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .booth-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .booth-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .booth-buttons {
+            display: flex;
+            gap: 15px;
             justify-content: center;
+            flex-wrap: wrap;
         }
-
-        .password-container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            max-width: 400px;
-            width: 90%;
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            min-width: 120px;
         }
-
-        .password-input {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1rem;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .btn-video {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 12px 30px;
+        }
+        .btn-products {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
             border: none;
             border-radius: 25px;
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
-
-        .submit-btn:hover {
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
-
-        .error-message {
-            color: #ff6b6b;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
-
-        .floating-elements {
+        .floating-particles {
             position: fixed;
             top: 0;
             left: 0;
@@ -176,171 +199,234 @@
             pointer-events: none;
             z-index: -1;
         }
-
-        .floating-element {
+        .particle {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float-particle 8s ease-in-out infinite;
         }
-
-        .floating-element:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
+        .particle:nth-child(1) { width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; top: 40%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 60%; left: 20%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 12px; height: 12px; top: 80%; left: 70%; animation-delay: 6s; }
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
         }
-
-        .floating-element:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .features {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .feature {
-            background: rgba(102, 126, 234, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .feature-title {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .feature-desc {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
+            .booth-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            
-            .logo {
-                font-size: 2.5rem;
+            .booth {
+                padding: 20px;
             }
-            
-            .entrance-btn {
-                padding: 15px 40px;
-                font-size: 1.1rem;
+            .booth-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 200px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
-
-    <div class="container">
-        <h1 class="logo">渡辺パイプ
-            WEBビジネス提案会</h1>
-        <p class="subtitle">開催期間：2025年10月1日～2025年11月30日</p>
-        
-        <button class="entrance-btn" onclick="showPasswordModal()">
-            🚀 ブース会場へ入場する
-        </button>
-
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🎥</div>
-                <div class="feature-title">セミナー動画</div>
-                <div class="feature-desc">最新情報を動画で確認</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🛍️</div>
-                <div class="feature-title">おすすめ商品</div>
-                <div class="feature-desc">厳選された商品ラインナップ</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🏢</div>
-                <div class="feature-title">8社ブース</div>
-                <div class="feature-desc">各メーカーの専用ブース</div>
-            </div>
+    <button class="back-btn" onclick="goBack()"> 戻る</button>
+    <div class="header">
+        <h1>🏢 ブース会場</h1>
+        <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
+    </div>
+    <!-- slideshow insert -->
+    <div class="slider-wrap">
+        <div id="slider" class="slider">
+            <!-- 画像はJSで挿入されます -->
+            <button class="nav prev" aria-label="前へ">‹</button>
+            <button class="nav next" aria-label="次へ">›</button>
+            <div class="dots" id="sliderDots"></div>
         </div>
     </div>
 
-    <div class="password-modal" id="passwordModal">
-        <div class="password-container">
-            <h2>🔐 アクセス認証</h2>
-            <p>ブース会場へアクセスするにはパスワードが必要です</p>
-            <input type="password" class="password-input" id="passwordInput" placeholder="パスワードを入力してください">
-            <br>
-            <button class="submit-btn" onclick="checkPassword()">入場する</button>
-            <div class="error-message" id="errorMessage"></div>
+    <div class="booth-grid">
+        <div class="booth">
+            <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
+            <div class="booth-title">TOTO株式会社</div>
+            <div class="booth-description">水まわり空間のトータルソリューションを提供する総合メーカー</div>
+            <div class="booth-buttons">
+                <a href="seminar_TOTO.html" class="btn btn-video">🎥 商品動画</a>
+                <a href="products_TOTO.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
+            <div class="booth-title">株式会社 LIXIL</div>
+            <div class="booth-description">住まいと暮らしの総合住生活ソリューションカンパニー</div>
+            <div class="booth-buttons">
+                <a href="seminar_LIXIL.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_LIXIL.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="takarastandardlogo.jpg" alt="タカラスタンダード株式会社ロゴ">
+            <div class="booth-title">タカラスタンダード株式会社</div>
+            <div class="booth-description">高品質な水まわり製品とシステムキッチンで快適な住空間を創造</div>
+            <div class="booth-buttons">
+                <a href="seminar_takara.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_takara.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="images/logo_daiken.png" alt="大建工業株式会社ロゴ">
+            <div class="booth-title">大建工業株式会社</div>
+            <div class="booth-description">ドア・建具・内装材の総合メーカーとして住空間をトータルサポート</div>
+            <div class="booth-buttons">
+                <a href="seminar_daiken.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_daiken.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンＨＶＡＣソリューション東京株式会社ロゴ">
+            <div class="booth-title">ダイキンＨＶＡＣソリューション東京株式会社</div>
+            <div class="booth-description">空調・換気システムのトータルソリューションで快適な環境を提供</div>
+            <div class="booth-buttons">
+                <a href="seminar_daikin.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_daikin.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="panalogo.jpg" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
+            <div class="booth-title">パナソニック ハウジングソリューションズ株式会社</div>
+            <div class="booth-description">住まいの総合ソリューションで豊かな住生活を実現する総合メーカー</div>
+            <div class="booth-buttons">
+                <a href="seminar_panasonic.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_panasonic.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="noritzlogo.jpg" alt="株式会社ノーリツロゴ">
+            <div class="booth-title">株式会社ノーリツ</div>
+            <div class="booth-description">給湯器・ガス器具のリーディングカンパニーとして快適な住環境を提供</div>
+            <div class="booth-buttons">
+                <a href="seminar_noritz.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_noritz.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="images/logo_woodtec.png" alt="朝日ウッドテック株式会社ロゴ">
+            <div class="booth-title">朝日ウッドテック株式会社</div>
+            <div class="booth-description">高品質な木材・建材で自然と調和した住空間を創造する専門メーカー</div>
+            <div class="booth-buttons">
+                <a href="seminar_woodtec.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <div class="booth">
+            <img class="booth-logo" src="images/logo_watanabepipe.png" alt="渡辺パイプ株式会社ロゴ">
+            <div class="booth-title">渡辺パイプ株式会社</div>
+            <div class="booth-description">ミラノサローネ最前線で取材してきました！</div>
+            <div class="booth-buttons">
+                <a href="seminar_woodtec.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
         </div>
     </div>
 
     <script>
-        function showPasswordModal() {
-            document.getElementById("passwordModal").style.display = "flex";
-            document.getElementById("passwordInput").focus();
+        function goBack() {
+            window.location.href = "index.html";
         }
-
-        function checkPassword() {
-            const password = document.getElementById("passwordInput").value;
-            const errorMessage = document.getElementById("errorMessage");
-            
-            // パスワードは "2025" に設定
-            if (password === "2025") {
-                window.location.href = "booth.html";
-            } else {
-                errorMessage.textContent = "パスワードが正しくありません。もう一度お試しください。";
-                document.getElementById("passwordInput").value = "";
-            }
+        function openVideo(companyId) {
+            alert(`会社${companyId}のセミナー動画ページを開きます。\n\n実際の実装では、各会社の動画ページに遷移します。`);
+            // 実際の実装例:
+            // window.open(`video_company${companyId}.html`, "_blank");
         }
-
-        // Enterキーでパスワード送信
-        document.getElementById("passwordInput").addEventListener("keypress", function(e) {
-            if (e.key === "Enter") {
-                checkPassword();
+        function openProducts(companyId) {
+            alert(`会社${companyId}のおすすめ商品ページを開きます。\n\n実際の実装では、各会社の商品ページに遷移します。`);
+            // 実際の実装例:
+            // window.open(`products_company${companyId}.html`, "_blank");
+        }
+        // --- slideshow logic ---
+        const sliderImages = [
+            // ここに8枚の画像URLを設定してください（例はプレースホルダー）
+            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_1185.JPG",
+            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_1220.JPG",
+            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_1294.JPG",
+            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_1310.JPG",
+            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_3377.JPG",
+            "https://global.sedia-system.co.jp/files/eisui/eisui/IMG_3380.JPG",
+            "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600",
+            "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1600"
+        ];
+        function initSlider() {
+            const slider = document.getElementById('slider');
+            const dotsWrap = document.getElementById('sliderDots');
+            if (!slider || !dotsWrap) return;
+            // スライド生成
+            sliderImages.forEach((src, idx) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide' + (idx === 0 ? ' active' : '');
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `スライド${idx + 1}`;
+                slide.appendChild(img);
+                slider.insertBefore(slide, slider.querySelector('.prev'));
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (idx === 0 ? ' active' : '');
+                dot.dataset.index = String(idx);
+                dotsWrap.appendChild(dot);
+            });
+            let current = 0;
+            let timer = null;
+            function show(index) {
+                const slides = slider.querySelectorAll('.slide');
+                const dots = dotsWrap.querySelectorAll('.dot');
+                slides.forEach((s, i) => s.classList.toggle('active', i === index));
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                current = index;
             }
-        });
-
-        // モーダル外クリックで閉じる
-        document.getElementById("passwordModal").addEventListener("click", function(e) {
-            if (e.target === this) {
-                this.style.display = "none";
-                document.getElementById("passwordInput").value = "";
-                document.getElementById("errorMessage").textContent = "";
+            function next() { show((current + 1) % sliderImages.length); }
+            function prev() { show((current - 1 + sliderImages.length) % sliderImages.length); }
+            function play() {
+                stop();
+                timer = setInterval(next, 4000);
             }
+            function stop() { if (timer) { clearInterval(timer); timer = null; } }
+            slider.querySelector('.next')?.addEventListener('click', () => { next(); play(); });
+            slider.querySelector('.prev')?.addEventListener('click', () => { prev(); play(); });
+            dotsWrap.addEventListener('click', (e) => {
+                const t = e.target;
+                if (t && t.classList.contains('dot')) {
+                    const i = Number(t.dataset.index || 0);
+                    show(i);
+                    play();
+                }
+            });
+            slider.addEventListener('mouseenter', stop);
+            slider.addEventListener('mouseleave', play);
+            play();
+        }
+        // --- /slideshow logic ---
+        // ページ読み込み時のアニメーション
+        window.addEventListener("load", function() {
+            initSlider();
+            const booths = document.querySelectorAll(".booth");
+            booths.forEach((booth, index) => {
+                booth.style.opacity = "0";
+                booth.style.transform = "translateY(50px)";
+                setTimeout(() => {
+                    booth.style.transition = "all 0.6s ease";
+                    booth.style.opacity = "1";
+                    booth.style.transform = "translateY(0)";
+                }, index * 100);
+            });
         });
     </script>
 </body>
 </html>
-
-
