@@ -70,12 +70,25 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .video.half{width:50%;margin:18px auto 0}
 .hero{display:flex;justify-content:center;margin:12px 0 18px}
-.hero img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
-.hero.half img{width:50%}
+/* ★★★ 3商品イメージの高さ統一（takarastandard2.JPGに合わせる） ★★★ */
+.hero-sameheight {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0 18px;
+}
+.hero-sameheight img {
+  width: auto;
+  height: 230px;      /* 必要に応じてここを調整。takarastandard2.JPGの高さに。*/
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  object-fit: contain;
+}
 @media (max-width:768px){
   .video.half{width:100%}
   .hero.half img{width:100%}
   .secondary{padding: 18px 0;font-size:1.1rem;}
+  .hero-sameheight img {height: 120px;}
 }
 
 /* 3×1 配置用（3カラム×1行に） */
@@ -142,11 +155,11 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
       <a class="btn secondary" href="takarastandard.pdf">新商品チラシへ</a>
     </div>
 
-<!-- ↓↓↓ ノーリツ部分 3回繰り返し ↓↓↓ -->
+<!-- ↓↓↓ 商品部分 3回繰り返し（画像高さ統一） ↓↓↓ -->
   <!-- 1回目 -->
   <div class="subtitle"><strong>My Treasure,My Treasia<br>
 わたしの一番好きな場所<br>「トレーシア」</strong></div>
-  <div class="hero half"><img src="takarastandard1.JPG" alt="The Art Line"></div>
+  <div class="hero-sameheight"><img src="takarastandard1.JPG" alt="トレーシア"></div>
   <div class="section-lead"><strong>新商品特長</strong></div>
   <div class="gallery three-cols">
     <figure>
@@ -170,7 +183,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   <!-- 2回目 -->
   <div class="subtitle"><strong>毎日をちょっと特別に<br>
 家族みんなでおうちスパ。<br>「グランスパ」</strong></div>
-  <div class="hero half"><img src="takarastandard2.JPG" alt="The Art Line"></div>
+  <div class="hero-sameheight"><img src="takarastandard2.JPG" alt="グランスパ"></div>
   <div class="section-lead"><strong>新商品特長</strong></div>
   <div class="gallery three-cols">
     <figure>
@@ -193,7 +206,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   </div>
   <!-- 3回目 -->
   <div class="subtitle"><strong>もっと心地よく、もっと自分らしく。<br>「ファミーユ」</strong></div>
-  <div class="hero half"><img src="takarastandard3.JPG" alt="The Art Line"></div>
+  <div class="hero-sameheight"><img src="takarastandard3.JPG" alt="ファミーユ"></div>
   <div class="section-lead"><strong>新商品特長</strong></div>
   <div class="gallery three-cols">
     <figure>
@@ -214,7 +227,7 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   <div class="links">
     <a class="btn primary" href="https://www.takara-standard.co.jp/product/dressing_table/famile/">商品ページへ</a>
   </div>
-<!-- ↑↑↑ ノーリツ部分 3回繰り返し ↑↑↑ -->
+<!-- ↑↑↑ 商品部分 3回繰り返し（画像高さ統一） ↑↑↑ -->
 
   <!-- ↓↓↓ ここを画像ボタンに変更 ↓↓↓ -->
   <a class="image-button-link" href="https://watanabepipe16411.github.io/web-business-proposal/seminar_takara.html" target="_blank" rel="noopener">
@@ -226,6 +239,3 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 
 </body>
 </html>
-
-
-
