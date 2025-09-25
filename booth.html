@@ -133,7 +133,7 @@
             margin-bottom: 15px;
         }
         .booth-logo {
-            height: 60px;       /* ←縦サイズ統一（必要に応じて数値調整） */
+            height: 60px;
             width: auto;
             margin-bottom: 10px;
             display: block;
@@ -194,6 +194,7 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            z-index: 1100;
         }
         .back-btn:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -367,6 +368,7 @@
 
     <script>
         function goBack() {
+            // 必ず index.html に戻る
             window.location.href = "index.html";
         }
         // --- slideshow logic 修正版 ---
