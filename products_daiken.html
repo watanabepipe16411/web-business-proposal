@@ -27,14 +27,6 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 .staff .name{font-weight:800;color:#333;text-align:left;flex:1}
 .comment{position:relative;background:#fff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06);margin-top:8px}
 .comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
-
-/* 右側スタッフ用 */
-.staff-right{display:flex;flex-direction:column;background:linear-gradient(135deg,#f8f9fa,#eef1f5);padding:20px;border-radius:12px;margin:14px 0;align-items:flex-end;text-align:right}
-.staff-right .staff-top{display:flex;flex-direction:row-reverse;align-items:center;gap:16px;margin-bottom:12px}
-.staff-right .name{font-weight:800;color:#333;text-align:right}
-.comment.right{position:relative;background:#e6f4ff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06);margin-top:8px}
-.comment.right:before{content:"";position:absolute;right:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #e6f4ff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
-
 .section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px;font-size:32px}
 .section-break{margin:48px auto 40px;text-align:center}
 .section-break .label{font-weight:800;color:#333;letter-spacing:.12em;font-size:14px;margin-bottom:10px;opacity:.9}
@@ -55,38 +47,74 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 .hero img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
 .hero.half img{width:50%}
 @media (max-width:768px){.video.half{width:100%}.hero.half img{width:100%}}
-
-/* 3×1 配置 */
+/* 3×1 配置用（アート、ネイチャー、ブレンドを3カラム×1行に） */
 .gallery.three-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
 @media (max-width:768px){.gallery.three-cols{grid-template-columns:1fr}}
-
-/* 区切り線 */
+/* 動画と「内窓…」セクションの間のスペース＋区切り線 */
 .mid-gap{height:12px}
 .mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
-
-/* タイトル部分 */
+/* タイトル部分のスタイル */
 .trend-title{font-size:28px;font-weight:900;color:#2c3e50;text-align:center;margin:20px 0;letter-spacing:0.05em;text-shadow:0 2px 4px rgba(0,0,0,0.1)}
-
-/* セクション上部の画像 */
+/* セクション上部の画像スタイル - 縦幅を1/3に調整 */
 .section-image{display:flex;justify-content:center;margin:20px 0}
 .section-image img{width:100%;max-width:600px;height:200px;object-fit:cover;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.12)}
+
+/* 右側スタッフ用 */
+.staff-right {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 14px 0;
+  align-items: flex-end;
+  text-align: right;
+}
+.staff-right .staff-top {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.staff-right .name {
+  font-weight: 800;
+  color: #333;
+  text-align: right;
+}
+.comment.right {
+  position: relative;
+  background: #e6f4ff; /* 水色背景 */
+  border-radius: 12px;
+  padding: 14px 16px;
+  line-height: 1.8;
+  color: #333;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  margin-top: 8px;
+}
+.comment.right:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #e6f4ff transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,.06));
+}
 </style>
 </head>
 <body>
 <div class="header"><div class="wrap"><div class="logo">おすすめ商品 | WEBビジネス提案会</div><a class="back" href="booth.html">← ブース会場に戻る</a></div></div>
-
 <div class="main"><div class="card">
   <div class="center">
     <div class="brand"><div class="brand-logo"><img src="DAIKENLOGO.png" alt="大建ロゴ"></div><div class="brand-name">大建工業株式会社</div></div>
-   
     <div class="sp-1line"></div>
     <div class="trend-title">今、イチオシの商品をメーカー担当者が熱く語ります</div>
     <div class="sp-1line"></div>
-    
     <div class="subtitle"><strong>多彩な空間も、こだわりの暮らしも、<br>『イエリア』なら自由自在。</strong></div>
     <div class="hero half"><img src="DAIKEN.JPG" alt="The Art Line"></div>
   </div>
-
   <div class="staff">
     <div class="staff-top">
       <img src="DAIKENshasin.jpg" alt="担当者">
@@ -101,11 +129,15 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
     </div>
   </div>
 
-  <!-- 右側スタッフ -->
+  <!-- 右側スタッフの吹き出しを追加 -->
   <div class="staff-right">
     <div class="staff-top">
       <img src="TOTOstaff2.jpg" alt="担当者">
-      <div class="name">渡辺パイプ株式会社<br>〇〇サービスセンター<br>山田 太郎 様</div>
+      <div class="name">
+        渡辺パイプ株式会社<br>
+        〇〇サービスセンター<br>
+        山田 太郎 様
+      </div>
     </div>
     <div class="comment right">
       渡辺パイプ株式会社のコメントが入ります。
@@ -113,40 +145,48 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   </div>
 
   <div class="section-lead"><strong>Standard NEW color</strong></div>
-
   <!-- 1つ目のセクション上部画像 -->
   <div class="section-image">
     <img src="DAIKEN2.jpg" alt="Standard NEW color イメージ">
   </div>
-
   <div class="gallery three-cols">
     <figure>
       <img src="DAIKEN3.JPG" alt="ソフトグレージュ柄">
-      <figcaption>ソフトグレージュ柄<br>より明るめのグレージュが今年のトレンドとなりますが、こちらはまさにど真ん中のカラーとなります。
-赤みを抑えた明るめのグレージュ基調で、ナチュラルに寄せた色柄をラインナップ致しました。
-他社にはない差別化が図れる製品を、スタンダードグレードにて展開いたします。</figcaption>
+      <figcaption>ソフトグレージュ柄<br>より明るめのグレージュが今年のトレンドとなりますが、こちらはまさにど真ん中のカラーとなります。 赤みを抑えた明るめのグレージュ基調で、ナチュラルに寄せた色柄をラインナップ致しました。 他社にはない差別化が図れる製品を、スタンダードグレードにて展開いたします。</figcaption>
     </figure>
     <figure>
       <img src="DAIKEN4.JPG" alt="モスブラック柄">
-      <figcaption>モスブラック柄<br>これまでに無く深みのある黒で、大建工業の歴史の中で最も黒い色柄となっております。
-扉・枠の同色使用だけでなく、黒枠として他の扉柄とコーディネートすることが可能となりました。</figcaption>
+      <figcaption>モスブラック柄<br>これまでに無く深みのある黒で、大建工業の歴史の中で最も黒い色柄となっております。 扉・枠の同色使用だけでなく、黒枠として他の扉柄とコーディネートすることが可能となりました。</figcaption>
     </figure>
     <figure>
       <img src="DAIKEN5.JPG" alt="パウダーホワイト柄">
-      <figcaption>パウダーホワイト柄<br>リノベセレクションというリノベーション向けカタログにてラインナップしていたカラーを、イエリアスタンダードにラインナップすることになりました。
-こちらは大建工業の歴史の中で最も白い色柄となっております。
-透明感と清涼感を演出し、様々なインテリアと調和致します。</figcaption>
+      <figcaption>パウダーホワイト柄<br>リノベセレクションというリノベーション向けカタログにてラインナップしていたカラーを、イエリアスタンダードにラインナップすることになりました。 こちらは大建工業の歴史の中で最も白い色柄となっております。 透明感と清涼感を演出し、様々なインテリアと調和致します。</figcaption>
     </figure>
   </div>
-
   <div class="section-lead"><strong>Select NEW color</strong></div>
-
   <!-- 2つ目のセクション上部画像 -->
   <div class="section-image">
     <img src="DAIKEN6.jpg" alt="Select NEW color イメージ">
   </div>
-
   <div class="gallery three-cols">
     <figure>
       <img src="DAIKEN7.JPG" alt="バームブラウン柄">
-      <figcaption>バームブラ
+      <figcaption>バームブラウン柄<br>今年の4月に行われたミラノサローネでも大きく取り上げられていた【モカムース】を取り入れたカラーとなります。 スタンダードグレードのトープグレーと併せて同系コーディネートが可能です。 床材もイエリアフロアセレクト柄にて同色をご用意しており、上質なブラウンコーデが高級感を演出します。</figcaption>
+    </figure>
+    <figure>
+      <img src="DAIKEN8.JPG" alt="スロウベージュ柄">
+      <figcaption>スロウベージュ柄<br>流線型のラインが特長的で、ハイドアにすることでより魅力を増す製品です。 こちらもイエリアフロアセレクト柄にて同色をご用意しており、上質なブラウンコーデが高級感を演出します。</figcaption>
+    </figure>
+    <figure>
+      <img src="DAIKEN9.JPG" alt="テラゾホワイト柄">
+      <figcaption>テラゾホワイト柄<br>テラゾー柄は商業施設などの内装で多く採用されている大理石調の柄となります。 住宅でも家具やフロアタイルなどにバリエーションが多く、新たなインテリア展開がされている柄となります。</figcaption>
+    </figure>
+  </div>
+  <div class="links">
+    <a class="btn primary" href="https://www.daiken.jp/buildingmaterials/newproducts/ieria/">商品ページへ</a>
+    <a class="btn secondary" href="https://www.daiken.jp/img/iportal/cv.do?c=82851400000&pg=1&v=DKK00001&d=PUB_CURCAT">カタログページへ</a>
+  </div>
+  <div class="video half"><iframe src="https://dkn.box.com/s/3cvf78900s8kqqgpo5jdc19dkog02kr5" allowfullscreen></iframe></div>
+</div></div>
+</body>
+</html>
