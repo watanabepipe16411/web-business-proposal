@@ -43,6 +43,7 @@
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(4px);
         }
+        .slides { width: 100%; }
         .slider .slide { display: none; }
         .slider .slide.active { display: block; animation: fade 0.8s ease; }
         .slider .slide img {
@@ -255,7 +256,7 @@
     <!-- slideshow insert -->
     <div class="slider-wrap">
         <div id="slider" class="slider">
-            <!-- 画像はJSで挿入されます -->
+            <div class="slides"></div>
             <button class="nav prev" aria-label="前へ">‹</button>
             <button class="nav next" aria-label="次へ">›</button>
             <div class="dots" id="sliderDots"></div>
@@ -368,19 +369,8 @@
         function goBack() {
             window.location.href = "index.html";
         }
-        function openVideo(companyId) {
-            alert(`会社${companyId}のセミナー動画ページを開きます。\n\n実際の実装では、各会社の動画ページに遷移します。`);
-            // 実際の実装例:
-            // window.open(`video_company${companyId}.html`, "_blank");
-        }
-        function openProducts(companyId) {
-            alert(`会社${companyId}のおすすめ商品ページを開きます。\n\n実際の実装では、各会社の商品ページに遷移します。`);
-            // 実際の実装例:
-            // window.open(`products_company${companyId}.html`, "_blank");
-        }
-        // --- slideshow logic ---
+        // --- slideshow logic 修正版 ---
         const sliderImages = [
-            // ここに8枚の画像URLを設定してください（例はプレースホルダー）
             "IMG_1185.JPG",
             "IMG_1220.JPG",
             "IMG_3380.JPG",
@@ -393,8 +383,11 @@
         function initSlider() {
             const slider = document.getElementById('slider');
             const dotsWrap = document.getElementById('sliderDots');
-            if (!slider || !dotsWrap) return;
-            // スライド生成
+            const slidesWrap = slider.querySelector('.slides');
+            if (!slider || !dotsWrap || !slidesWrap) return;
+            slidesWrap.innerHTML = '';
+            dotsWrap.innerHTML = '';
+            // スライド生成（.slides内に追加）
             sliderImages.forEach((src, idx) => {
                 const slide = document.createElement('div');
                 slide.className = 'slide' + (idx === 0 ? ' active' : '');
@@ -402,7 +395,7 @@
                 img.src = src;
                 img.alt = `スライド${idx + 1}`;
                 slide.appendChild(img);
-                slider.insertBefore(slide, slider.querySelector('.prev'));
+                slidesWrap.appendChild(slide);
                 const dot = document.createElement('div');
                 dot.className = 'dot' + (idx === 0 ? ' active' : '');
                 dot.dataset.index = String(idx);
@@ -411,7 +404,7 @@
             let current = 0;
             let timer = null;
             function show(index) {
-                const slides = slider.querySelectorAll('.slide');
+                const slides = slidesWrap.querySelectorAll('.slide');
                 const dots = dotsWrap.querySelectorAll('.dot');
                 slides.forEach((s, i) => s.classList.toggle('active', i === index));
                 dots.forEach((d, i) => d.classList.toggle('active', i === index));
@@ -438,8 +431,6 @@
             slider.addEventListener('mouseleave', play);
             play();
         }
-        // --- /slideshow logic ---
-        // ページ読み込み時のアニメーション
         window.addEventListener("load", function() {
             initSlider();
             const booths = document.querySelectorAll(".booth");
