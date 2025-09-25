@@ -28,34 +28,61 @@
 .hero.half img{width:50%}
 @media (max-width:768px){.video.half{width:100%}.hero.half img{width:100%}}
 
-/* 2×2 配置用（A〜Dを2カラム×2行に） */
+/* 2×2 配置用 */
 .gallery.two-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0}
 @media (max-width:768px){.gallery.two-cols{grid-template-columns:1fr}}
 
-/* 動画と「内窓…」セクションの間のスペース＋区切り線 */
+/* 動画と区切り線 */
 .mid-gap{height:12px}
 .mid-divider{border:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.28),transparent);width:60%;margin:10px auto}
 
 /* 追加：トレンド下の2ボタン横並び */
-.trend-buttons {
+.trend-buttons {display:flex;gap:16px;justify-content:center;margin:18px 0 8px}
+.trend-buttons .btn {min-width:180px;font-size:16px}
+@media (max-width:600px){.trend-buttons{flex-direction:column;gap:10px}.trend-buttons .btn{width:100%;min-width:0}}
+
+/* ▼ 新規：右側スタッフ用 */
+.staff-right {
   display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 14px 0;
+  align-items: flex-end;
+  text-align: right;
+}
+.staff-right .staff-top {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
   gap: 16px;
-  justify-content: center;
-  margin: 18px 0 8px;
+  margin-bottom: 12px;
 }
-.trend-buttons .btn {
-  min-width: 180px;
-  font-size: 16px;
+.staff-right .name {
+  font-weight: 800;
+  color: #333;
+  text-align: right;
 }
-@media (max-width:600px) {
-  .trend-buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .trend-buttons .btn {
-    width: 100%;
-    min-width: 0;
-  }
+.comment.right {
+  position: relative;
+  background: #e6f4ff; /* 水色背景 */
+  border-radius: 12px;
+  padding: 14px 16px;
+  line-height: 1.8;
+  color: #333;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  margin-top: 8px;
+}
+.comment.right:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #e6f4ff transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,.06));
 }
 </style>
 </head>
@@ -65,20 +92,20 @@
 <div class="main"><div class="card">
   <div class="center">
     <div class="brand"><div class="brand-logo"><img src="LIXILlogo.png" alt="LIXILロゴ"></div><div class="brand-name">株式会社LIXIL</div></div>
-        <div class="sp-1line"></div>
+    <div class="sp-1line"></div>
     <div class="trend-title">今、イチオシの商品をメーカー担当者が熱く語ります</div>
-    <!-- ▼ ここに2ボタンを横並びで追加 -->
     <div class="trend-buttons">
       <a href="#ecocarat-self" class="btn primary">エコカラットセルフ</a>
       <a href="#inplus" class="btn secondary">インプラス</a>
     </div>
     <div class="mid-gap"></div>
-<hr class="mid-divider">
+    <hr class="mid-divider">
     <div class="sp-1line"></div>
     <div class="subtitle"><strong>取付けも、デザイン変更も簡単にできる<br>「エコカラットセルフ」</strong></div>
     <div class="hero half" id="ecocarat-self"><img src="ECOCARATtatle.JPG" alt="エコカラットセルフ"></div>
   </div>
 
+  <!-- 左側スタッフ -->
   <div class="staff">
     <div class="staff-top">
       <img src="LIXIL_shasin1.JPG" alt="担当者">
@@ -88,6 +115,19 @@
       エコカラットセルフはDIYで簡単に取り付けられるエコカラットです。<br>
       調湿・消臭機能はそのままに、豊富なデザインとカラーでお部屋のアクセントや模様替えに最適。<br>
       特別な工具は不要で手軽に理想の空間を実現できます。エコカラットセルフで快適な住まいをあなたの手で！
+    </div>
+  </div>
+
+  <!-- 右側スタッフ（追加分） -->
+  <div class="staff-right">
+    <div class="staff-top">
+      <img src="LIXIL_shasin2.JPG" alt="担当者">
+      <div class="name">株式会社LIXIL<br>営業部 マネージャー<br>山田 太郎 様</div>
+    </div>
+    <div class="comment right">
+      そうですね！<br>
+      実際に取り付けてみると、断熱効果やデザイン性の高さに驚かれる方が多いです。<br>
+      特にリフォームを検討中のお客様には大変おすすめの商品です。
     </div>
   </div>
 
@@ -147,24 +187,24 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
 
   <div class="gallery two-cols">
     <figure>
-      <img src="inplus2.JPG" alt="湿度がちょうどいい、という贅沢。">
+      <img src="inplus2.JPG" alt="冬はあったか">
       <figcaption>冬はあったか
 既存の窓だけでは、外の冷気が窓から入ってきます。内窓を取付けると、外の冷気の侵入を防ぎ、エアコンで暖められた室内の空気を逃げにくくします。</figcaption>
     </figure>
     <figure>
-      <img src="inplus3.JPG" alt="においが気にならない、という快適。">
+      <img src="inplus3.JPG" alt="夏はさわやか">
       <figcaption>夏はさわやか
 エアコンで冷やされた室内の空気をしっかりキープ。夏の強い日差しや紫外線対策にも効果的なガラスもご用意しています。</figcaption>
     </figure>
     <figure>
-      <img src="inplus4.JPG" alt="有害物質から守ってあげる、という安心。">
+      <img src="inplus4.JPG" alt="工事は約60分">
       <figcaption>1窓あたりの取り付けは、約６０分！
 既存の窓の内側に窓を取付けるだけなので工事に費やす時間は１窓あたり約60分。戸建て住宅だけでなく、マンションにもおすすめです。</figcaption>
     </figure>
     <figure>
-      <img src="inplus5.JPG" alt="キレイがつづく、という満足。">
+      <img src="inplus5.JPG" alt="窓の断熱性能アップ">
       <figcaption>一般住宅において、熱の出入りが最も多いのは、屋根や外壁よりも、窓などの開口部です。冬の暖房時には約6割の熱が開口部から流出します。
-        窓の断熱性能・遮熱性能を高めると、暖房に頼り過ぎずに冬は暖かく理想の暮らしが実現します。。</figcaption>
+        窓の断熱性能・遮熱性能を高めると、暖房に頼り過ぎずに冬は暖かく理想の暮らしが実現します。</figcaption>
     </figure>
   </div>
 
@@ -179,4 +219,3 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
 
 </body>
 </html>
-
