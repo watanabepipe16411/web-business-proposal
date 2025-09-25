@@ -247,6 +247,50 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
     padding: 12px 0;
   }
 }
+
+/* 右側スタッフ用 */
+.staff-right {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 14px 0;
+  align-items: flex-end;
+  text-align: right;
+}
+.staff-right .staff-top {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.staff-right .name {
+  font-weight: 800;
+  color: #333;
+  text-align: right;
+}
+.comment.right {
+  position: relative;
+  background: #e6f4ff; /* 水色背景 */
+  border-radius: 12px;
+  padding: 14px 16px;
+  line-height: 1.8;
+  color: #333;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  margin-top: 8px;
+}
+.comment.right:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #e6f4ff transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,.06));
+}
 </style>
 </head>
 <body>
@@ -278,6 +322,22 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
 今後も進化し続けるタカラスタンダードにご期待ください！
       </div>
     </div>
+
+    <!-- 右側スタッフの吹き出しを追加 -->
+    <div class="staff-right">
+      <div class="staff-top">
+        <img src="TOTOstaff2.jpg" alt="担当者">
+        <div class="name">
+          渡辺パイプ株式会社<br>
+          〇〇サービスセンター<br>
+          山田 太郎 様
+        </div>
+      </div>
+      <div class="comment right">
+        渡辺パイプ株式会社のコメントが入ります。
+      </div>
+    </div>
+
     <div class="links">
       <a class="btn secondary" href="takarastandard.pdf">新商品チラシへ</a>
     </div>
@@ -348,7 +408,3 @@ body{font-family:"Segoe UI",Tahoma,Verdana,sans-serif;background:linear-gradient
   </div></div>
 </body>
 </html>
-
-
-
-
