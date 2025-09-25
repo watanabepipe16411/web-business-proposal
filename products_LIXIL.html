@@ -12,7 +12,7 @@
 .staff img{width:80px;aspect-ratio:1/1;border-radius:50%;object-fit:cover;flex-shrink:0}
 .staff .name{font-weight:800;color:#333;text-align:left;flex:1}
 .comment{position:relative;background:#fff;border-radius:12px;padding:14px 16px;line-height:1.8;color:#333;box-shadow:0 6px 14px rgba(0,0,0,.06);margin-top:8px}
-.comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06))}
+.comment:before{content:"";position:absolute;left:20px;top:-10px;border-width:10px;border-style:solid;border-color:transparent transparent #fff transparent;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.06)}
 .section-lead{font-weight:800;text-align:center;color:#333;margin:14px 0 8px;font-size:32px}
 .section-break{margin:48px auto 40px;text-align:center}
 .section-break .label{font-weight:800;color:#333;letter-spacing:.12em;font-size:14px;margin-bottom:10px;opacity:.9}
@@ -56,6 +56,58 @@
     width: 100%;
     min-width: 0;
   }
+}
+
+/* 追加：右揃えスタッフ吹き出し */
+.staff-right {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #e6f0ff, #d1e8f7); /* 青系グラデーション */
+  padding: 20px;
+  border-radius: 12px;
+  margin: 14px 0;
+  align-items: flex-end;
+}
+.staff-right-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-direction: row-reverse;
+}
+.staff-right img {
+  width: 80px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.staff-right .name {
+  font-weight: 800;
+  color: #333;
+  text-align: right;
+  flex: 1;
+}
+.comment-right {
+  position: relative;
+  background: #e6f4ff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  line-height: 1.8;
+  color: #333;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  margin-top: 8px;
+  text-align: right;
+}
+.comment-right:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #e6f4ff transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,.06));
 }
 </style>
 </head>
@@ -145,6 +197,20 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
     </div>
   </div>
 
+  <!-- ここから追加する右揃えのスタッフ吹き出し -->
+  <div class="staff-right">
+    <div class="staff-right-top">
+      <img src="staff3.jpg" alt="担当者3">
+      <div class="name">LWT東京中央第1営業所<br>小林 智子 様</div>
+    </div>
+    <div class="comment-right">
+      ご紹介した「エコカラットセルフ」と「インプラス」は、どちらも暮らしを快適にするおすすめの商品です。<br>
+      ご質問やご相談がございましたら、ぜひお気軽にお問い合わせください。<br>
+      皆様の理想の住まいづくりをLIXILが全力でサポートいたします！
+    </div>
+  </div>
+  <!-- ここまで追加 -->
+
   <div class="gallery two-cols">
     <figure>
       <img src="inplus2.JPG" alt="湿度がちょうどいい、という贅沢。">
@@ -179,6 +245,3 @@ YouTubeで「エコカラットプラス　調湿実験」を検索！</figcapti
 
 </body>
 </html>
-
-
-
