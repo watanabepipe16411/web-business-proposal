@@ -123,19 +123,27 @@
             transform: translateY(-10px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
-        .booth-logo {
+
+        /* ここからロゴとタイトルの中央揃え・高さ統一用 */
+        .booth-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-bottom: 15px;
-            max-width: 90px;
-            height: auto;
+        }
+        .booth-logo {
+            height: 60px;       /* ←縦サイズ統一（必要に応じて数値調整） */
+            width: auto;
+            margin-bottom: 10px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
         .booth-title {
             font-size: 1.5rem;
             font-weight: bold;
             color: #333;
             margin-bottom: 10px;
+            text-align: center;
+            width: 100%;
         }
         .booth-description {
             color: #666;
@@ -256,8 +264,10 @@
 
     <div class="booth-grid">
         <div class="booth">
-            <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
-            <div class="booth-title">TOTO株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
+                <div class="booth-title">TOTO株式会社</div>
+            </div>
             <div class="booth-description">水まわり空間のトータルソリューションを提供する総合メーカー</div>
             <div class="booth-buttons">
                 <a href="seminar_TOTO.html" class="btn btn-video">🎥 商品動画</a>
@@ -265,8 +275,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
-            <div class="booth-title">株式会社 LIXIL</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
+                <div class="booth-title">株式会社 LIXIL</div>
+            </div>
             <div class="booth-description">住まいと暮らしの総合住生活ソリューションカンパニー</div>
             <div class="booth-buttons">
                 <a href="seminar_LIXIL.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -274,8 +286,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="takarastandardlogo.jpg" alt="タカラスタンダード株式会社ロゴ">
-            <div class="booth-title">タカラスタンダード株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="takarastandardlogo.jpg" alt="タカラスタンダード株式会社ロゴ">
+                <div class="booth-title">タカラスタンダード株式会社</div>
+            </div>
             <div class="booth-description">高品質な水まわり製品とシステムキッチンで快適な住空間を創造</div>
             <div class="booth-buttons">
                 <a href="seminar_takara.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -283,8 +297,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="DAIKENLOGO.png" alt="大建工業株式会社ロゴ">
-            <div class="booth-title">大建工業株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="DAIKENLOGO.png" alt="大建工業株式会社ロゴ">
+                <div class="booth-title">大建工業株式会社</div>
+            </div>
             <div class="booth-description">ドア・建具・内装材の総合メーカーとして住空間をトータルサポート</div>
             <div class="booth-buttons">
                 <a href="seminar_daiken.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -292,8 +308,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンＨＶＡＣソリューション東京株式会社ロゴ">
-            <div class="booth-title">ダイキンＨＶＡＣソリューション東京株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンＨＶＡＣソリューション東京株式会社ロゴ">
+                <div class="booth-title">ダイキンＨＶＡＣソリューション東京株式会社</div>
+            </div>
             <div class="booth-description">空調・換気システムのトータルソリューションで快適な環境を提供</div>
             <div class="booth-buttons">
                 <a href="seminar_daikin.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -301,8 +319,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="panalogo.jpg" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
-            <div class="booth-title">パナソニック ハウジングソリューションズ株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="panalogo.jpg" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
+                <div class="booth-title">パナソニック ハウジングソリューションズ株式会社</div>
+            </div>
             <div class="booth-description">住まいの総合ソリューションで豊かな住生活を実現する総合メーカー</div>
             <div class="booth-buttons">
                 <a href="seminar_panasonic.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -310,8 +330,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="noritzlogo.jpg" alt="株式会社ノーリツロゴ">
-            <div class="booth-title">株式会社ノーリツ</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="noritzlogo.jpg" alt="株式会社ノーリツロゴ">
+                <div class="booth-title">株式会社ノーリツ</div>
+            </div>
             <div class="booth-description">給湯器・ガス器具のリーディングカンパニーとして快適な住環境を提供</div>
             <div class="booth-buttons">
                 <a href="seminar_noritz.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -319,8 +341,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="images/logo_woodtec.png" alt="朝日ウッドテック株式会社ロゴ">
-            <div class="booth-title">朝日ウッドテック株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="images/logo_woodtec.png" alt="朝日ウッドテック株式会社ロゴ">
+                <div class="booth-title">朝日ウッドテック株式会社</div>
+            </div>
             <div class="booth-description">高品質な木材・建材で自然と調和した住空間を創造する専門メーカー</div>
             <div class="booth-buttons">
                 <a href="seminar_woodtec.html" class="btn btn-video">🎥 セミナー動画</a>
@@ -328,8 +352,10 @@
             </div>
         </div>
         <div class="booth">
-            <img class="booth-logo" src="sedia.png" alt="渡辺パイプ株式会社ロゴ">
-            <div class="booth-title">渡辺パイプ株式会社</div>
+            <div class="booth-header">
+                <img class="booth-logo" src="sedia.png" alt="渡辺パイプ株式会社ロゴ">
+                <div class="booth-title">渡辺パイプ株式会社</div>
+            </div>
             <div class="booth-description">ミラノサローネ最前線で取材してきました！</div>
             <div class="booth-buttons">
                 <a href="product_sedia.html" class="btn btn-video">🎥 セミナー動画</a>
