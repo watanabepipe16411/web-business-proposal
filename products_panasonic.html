@@ -34,7 +34,7 @@ body, html { height: 100%; }
   max-width:1200px;
   margin:0 auto;
   padding: 64px 20px 28px 20px; /* 上パディングをヘッダー分追加 */
-  min-height:calc(100vh - 0px); /* 高さの計算からヘッダーは考慮不要、paddingで調整 */
+  min-height:calc(100vh - 0px);
 }
 .card {
   background:rgba(255,255,255,1);
@@ -141,6 +141,50 @@ body, html { height: 100%; }
   font-size: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+
+/* 右側スタッフ用 */
+.staff-right {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 14px 0;
+  align-items: flex-end;
+  text-align: right;
+}
+.staff-right .staff-top {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.staff-right .name {
+  font-weight: 800;
+  color: #333;
+  text-align: right;
+}
+.comment.right {
+  position: relative;
+  background: #e6f4ff; /* 水色背景 */
+  border-radius: 12px;
+  padding: 14px 16px;
+  line-height: 1.8;
+  color: #333;
+  box-shadow: 0 6px 14px rgba(0,0,0,.06);
+  margin-top: 8px;
+}
+.comment.right:before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #e6f4ff transparent;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,.06));
+}
 </style>
 </head>
 <body>
@@ -174,6 +218,21 @@ body, html { height: 100%; }
         パナソニックでは2月発売の「多用途収納」と8月発売の「Panasonic DRESSING C-Line」フロートワイドカウンタープランによる新しい空間の使い方をご提案いたします。<br>
         C-Lineは、お手頃価格で機能性とデザイン性を兼ね備えた万能な洗面化粧台となります。<br>
         色柄も幅広く様々な空間にマッチいたします。是非、よろしくお願いいたします。
+      </div>
+    </div>
+
+    <!-- 右側スタッフの吹き出しを追加 -->
+    <div class="staff-right">
+      <div class="staff-top">
+        <img src="TOTOstaff2.jpg" alt="担当者">
+        <div class="name">
+          渡辺パイプ株式会社<br>
+          〇〇サービスセンター<br>
+          山田 太郎 様
+        </div>
+      </div>
+      <div class="comment right">
+        渡辺パイプ株式会社のコメントが入ります。
       </div>
     </div>
 
@@ -258,8 +317,5 @@ body, html { height: 100%; }
     <!-- ↑↑↑ 画像ボタンここまで ↑↑↑ -->
   </div>
 </div>
-</div>
 </body>
 </html>
-
-
