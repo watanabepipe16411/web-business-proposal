@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -58,6 +58,13 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounceIn 1s;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.6); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
         }
 
         .subtitle {
@@ -65,6 +72,12 @@
             color: #666;
             margin-bottom: 40px;
             font-weight: 300;
+            animation: fadeInUp 1.5s;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
         }
 
         .entrance-btn {
@@ -80,6 +93,13 @@
             box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
             position: relative;
             overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4);}
+            70% { box-shadow: 0 0 30px 20px rgba(255,107,107,0);}
+            100% { box-shadow: 0 0 0 0 rgba(255,107,107,0);}
         }
 
         .entrance-btn::before {
@@ -98,12 +118,13 @@
         }
 
         .entrance-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.05);
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
             box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
         }
 
         .entrance-btn:active {
-            transform: translateY(-1px);
+            transform: translateY(-1px) scale(0.98);
         }
 
         .password-modal {
@@ -127,6 +148,12 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             max-width: 400px;
             width: 90%;
+            animation: fadeInModal 0.7s;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.8);}
+            to { opacity: 1; transform: scale(1);}
         }
 
         .password-input {
@@ -157,7 +184,8 @@
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(45deg, #23d160, #00c4cc);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
@@ -179,9 +207,10 @@
 
         .floating-element {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float 6s ease-in-out infinite alternate;
+            filter: blur(2px);
         }
 
         .floating-element:nth-child(1) {
@@ -208,9 +237,26 @@
             animation-delay: 4s;
         }
 
+        .floating-element:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            top: 10%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .floating-element:nth-child(5) {
+            width: 100px;
+            height: 100px;
+            top: 70%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1);}
+            30% { transform: translateY(-30px) rotate(90deg) scale(1.1);}
+            60% { transform: translateY(10px) rotate(180deg) scale(0.95);}
         }
 
         .features {
@@ -225,11 +271,31 @@
             padding: 20px;
             border-radius: 15px;
             border: 1px solid rgba(102, 126, 234, 0.2);
+            animation: featureFadeIn 1.2s;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+            background: rgba(255,255,255,0.85);
+        }
+
+        @keyframes featureFadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
         }
 
         .feature-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            animation: iconPop 1.2s;
+        }
+
+        @keyframes iconPop {
+            0% { transform: scale(0.5); opacity: 0;}
+            60% { transform: scale(1.1);}
+            100% { transform: scale(1); opacity: 1;}
         }
 
         .feature-title {
@@ -239,28 +305,30 @@
         }
 
         .feature-desc {
-            font-size: 0.9rem;
+            font-size: 0.97rem;
             color: #666;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 40px 20px;
+                padding: 40px 10px;
             }
             
             .logo {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .entrance-btn {
-                padding: 15px 40px;
-                font-size: 1.1rem;
+                padding: 14px 25px;
+                font-size: 1.02rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
         <div class="floating-element"></div>
         <div class="floating-element"></div>
         <div class="floating-element"></div>
@@ -271,7 +339,7 @@
         <p class="subtitle">最新情報セミナー動画 & おすすめ商品をチェック</p>
         
         <button class="entrance-btn" onclick="showPasswordModal()">
-            🚀 ブース会場へ入場する
+            <span id="btn-emoji">🚀</span> ブース会場へ入場する
         </button>
 
         <div class="features">
@@ -305,6 +373,20 @@
     </div>
 
     <script>
+        // 入口ボタンの絵文字をアニメーション
+        function animateEmoji() {
+            const emoji = document.getElementById("btn-emoji");
+            emoji.animate([
+                { transform: "translateY(0)" },
+                { transform: "translateY(-10px)" },
+                { transform: "translateY(0)" }
+            ], {
+                duration: 700,
+                iterations: Infinity
+            });
+        }
+        animateEmoji();
+
         function showPasswordModal() {
             document.getElementById("passwordModal").style.display = "flex";
             document.getElementById("passwordInput").focus();
@@ -338,8 +420,20 @@
                 document.getElementById("errorMessage").textContent = "";
             }
         });
+
+        // ページロード時にfeatureカードをランダムな位置・タイミングでポップアップ
+        window.onload = function() {
+            document.querySelectorAll('.feature').forEach((el, i) => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        el.style.transform = '';
+                    }, 600);
+                }, 400 + i * 350);
+            });
+        };
     </script>
 </body>
 </html>
-
-
