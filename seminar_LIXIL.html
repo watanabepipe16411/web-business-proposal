@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>株式会社LIXIL セミナー動画 - WEBビジネス提案会</title>
+    <title>株式会社LIXIL 商品動画 - WEBビジネス提案会</title>
     <style>
         * {
             margin: 0;
@@ -21,6 +21,7 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
+            z-index: 10;
         }
         .wrap {
             max-width: 1200px;
@@ -70,21 +71,33 @@
             color: #666;
             margin-bottom: 24px;
         }
-        /* 動画を横並びにする親コンテナ */
+
+        /* 動画コンテナ */
         .videos {
             display: flex;
-            gap: 20px; /* 動画間の隙間 */
-            margin-bottom: 18px;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
         }
-        /* 各動画のラッパー */
+        .video-box {
+            flex: 1 1 45%;
+            min-width: 320px;
+            max-width: 550px;
+        }
+        .video-title {
+            text-align: center;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
         .video {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 アスペクト比 */
+            padding-bottom: 56.25%;
             height: 0;
             border-radius: 12px;
             overflow: hidden;
             background: #000;
-            flex: 1; /* 横並びで均等幅 */
         }
         iframe {
             position: absolute;
@@ -94,8 +107,9 @@
             height: 100%;
             border: 0;
         }
+
         .actions {
-            margin-top: 18px;
+            margin-top: 28px;
             display: flex;
             gap: 12px;
             justify-content: center;
@@ -114,6 +128,12 @@
         .secondary {
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
         }
+
+        @media (max-width: 768px) {
+            .video-box {
+                flex: 1 1 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -123,6 +143,7 @@
             <a class="back" href="booth.html">← ブース会場に戻る</a>
         </div>
     </div>
+
     <div class="main">
         <div class="card">
             <div class="center">
@@ -130,14 +151,22 @@
                 <div class="name">株式会社LIXIL</div>
                 <div class="desc">住まいと暮らしの総合住生活ソリューションカンパニー</div>
             </div>
+
             <div class="videos">
-                <div class="video">
-                    <iframe src="https://www.youtube.com/embed/DE5sJi_HvQs" allowfullscreen></iframe>
+                <div class="video-box">
+                    <div class="video-title">LIXIL 会社紹介動画</div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/m8fptNAMKUM" allowfullscreen></iframe>
+                    </div>
                 </div>
-                <div class="video">
-                    <iframe src="https://www.youtube.com/embed/-nQ_tR-RWyw" allowfullscreen></iframe>
+                <div class="video-box">
+                    <div class="video-title">LIXIL 製品紹介セミナー</div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
+
             <div class="actions">
                 <a class="btn primary" href="products_LIXIL.html">🛍️ おすすめ商品を見る</a>
             </div>
