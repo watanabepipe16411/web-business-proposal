@@ -7,6 +7,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-HG0D1B3ETW');
 </script>
     <meta charset="UTF-8">
@@ -133,18 +134,6 @@
 
         .entrance-btn:active {
             transform: translateY(-1px) scale(0.98);
-        }
-
-        /* 🔽 カウントダウン用スタイル */
-        .countdown-text {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: #444;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff9966, #ff5e62);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1.5s;
         }
 
         .password-modal {
@@ -362,9 +351,6 @@
             <span id="btn-emoji">🚀</span> ブース会場へ入場する
         </button>
 
-        <!-- 🔽 カウントダウン表示 -->
-        <p id="countdown" class="countdown-text"></p>
-
         <div class="features">
             <div class="feature">
                 <div class="feature-icon">🎥</div>
@@ -396,8 +382,68 @@
     </div>
 
     <script>
-        // 🚀ボタンの絵文字アニメーション
+        // 入口ボタンの絵文字をアニメーション
         function animateEmoji() {
             const emoji = document.getElementById("btn-emoji");
             emoji.animate([
                 { transform: "translateY(0)" },
+                { transform: "translateY(-10px)" },
+                { transform: "translateY(0)" }
+            ], {
+                duration: 700,
+                iterations: Infinity
+            });
+        }
+        animateEmoji();
+
+        function showPasswordModal() {
+            document.getElementById("passwordModal").style.display = "flex";
+            document.getElementById("passwordInput").focus();
+        }
+
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+            const errorMessage = document.getElementById("errorMessage");
+            
+            // パスワードは "sedia2025" に設定
+            if (password === "sedia2025") {
+                window.location.href = "booth.html";
+            } else {
+                errorMessage.textContent = "パスワードが正しくありません。もう一度お試しください。";
+                document.getElementById("passwordInput").value = "";
+            }
+        }
+
+        // Enterキーでパスワード送信
+        document.getElementById("passwordInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkPassword();
+            }
+        });
+
+        // モーダル外クリックで閉じる
+        document.getElementById("passwordModal").addEventListener("click", function(e) {
+            if (e.target === this) {
+                this.style.display = "none";
+                document.getElementById("passwordInput").value = "";
+                document.getElementById("errorMessage").textContent = "";
+            }
+        });
+
+        // ページロード時にfeatureカードをランダムな位置・タイミングでポップアップ
+        window.onload = function() {
+            document.querySelectorAll('.feature').forEach((el, i) => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        el.style.transform = '';
+                    }, 600);
+                }, 400 + i * 350);
+            });
+        };
+    </script>
+</body>
+</html>
+
