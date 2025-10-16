@@ -1,178 +1,111 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HG0D1B3ETW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HG0D1B3ETW');
-  </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>渡辺パイプ株式会社 セミナー動画 - WEBビジネス提案会</title>
-
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:"Segoe UI","Hiragino Sans",Meiryo,sans-serif;
+      background:linear-gradient(135deg,#89f7fe,#66a6ff);
+      min-height:100vh;
+      animation:bgMove 10s ease-in-out infinite alternate;
+    }
+    @keyframes bgMove{
+      0%{background:linear-gradient(135deg,#89f7fe,#66a6ff);}
+      100%{background:linear-gradient(135deg,#a1c4fd,#c2e9fb);}
+    }
+    .header{
+      background:rgba(255,255,255,0.9);
+      padding:16px 0;
+      box-shadow:0 4px 20px rgba(0,0,0,0.1);
+      position:sticky;top:0;backdrop-filter:blur(8px);z-index:10;
+    }
+    .wrap{
+      max-width:1200px;margin:0 auto;padding:0 24px;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .logo{font-weight:800;font-size:20px;color:#333;}
+    .back{
+      background:linear-gradient(45deg,#ff6b6b,#ee5a24);
+      color:#fff;padding:10px 20px;border-radius:30px;
+      text-decoration:none;font-weight:600;
+      box-shadow:0 4px 10px rgba(255,100,100,0.3);
+      transition:all .3s;
+    }
+    .back:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(255,80,80,0.4);}
+    .main{max-width:1000px;margin:60px auto;padding:0 20px;}
+    .card{
+      background:rgba(255,255,255,0.25);
+      border-radius:24px;padding:40px;
+      backdrop-filter:blur(12px);
+      box-shadow:0 12px 32px rgba(0,0,0,0.15);
+      animation:fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+    .center{text-align:center;color:#333;}
+    .logo-emoji{font-size:52px;margin-bottom:10px;animation:float 3s ease-in-out infinite;}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+    .name{font-size:28px;font-weight:800;margin-bottom:10px;background:linear-gradient(90deg,#4ecdc4,#556270);-webkit-background-clip:text;color:transparent;}
+    .desc{color:#444;font-size:18px;margin-bottom:26px;font-weight:500;}
+    .video{position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 10px 30px rgba(0,0,0,0.25);}
+    iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+    .actions{margin-top:28px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .btn{padding:14px 24px;border-radius:30px;text-decoration:none;color:#fff;font-weight:700;letter-spacing:.5px;transition:all .3s ease;box-shadow:0 6px 14px rgba(0,0,0,0.2);}
+    .primary{background:linear-gradient(45deg,#4ecdc4,#2e8b57);}
+    .secondary{background:linear-gradient(45deg,#ff6b6b,#ee5a24);}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
+
+    /* ▼追加部分：スタッフブロック */
+    .staff{
+      display:flex;
+      flex-direction:column;
+      background:linear-gradient(135deg,#f8f9fa,#eef1f5);
+      padding:20px;
+      border-radius:12px;
+      margin:28px 0 0;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    .staff-top{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:12px;
+    }
+    .staff img{
+      width:80px;
+      aspect-ratio:1/1;
+      border-radius:50%;
+      object-fit:cover;
+      flex-shrink:0;
+    }
+    .staff .name{
+      font-weight:800;
+      color:#333;
+      text-align:left;
+      flex:1;
+      line-height:1.4;
     }
 
-    body {
-      font-family: "Segoe UI", "Hiragino Sans", Meiryo, sans-serif;
-      background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      min-height: 100vh;
-      animation: bgMove 10s ease-in-out infinite alternate;
+    /* 吹き出しコメント */
+    .comment{
+      position:relative;
+      background:#fff;
+      border-radius:12px;
+      padding:16px 20px;
+      font-size:15px;
+      color:#333;
+      line-height:1.6;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
     }
-
-    @keyframes bgMove {
-      0% { background: linear-gradient(135deg, #89f7fe, #66a6ff); }
-      100% { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
-    }
-
-    .header {
-      background: rgba(255,255,255,0.9);
-      padding: 16px 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      position: sticky; top: 0;
-      backdrop-filter: blur(8px);
-      z-index: 10;
-    }
-
-    .wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 20px;
-      color: #333;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .back {
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(255,100,100,0.3);
-      transition: all 0.3s;
-    }
-
-    .back:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(255,80,80,0.4);
-    }
-
-    .main {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.25);
-      border-radius: 24px;
-      padding: 40px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-      animation: fadeIn 1.2s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .center {
-      text-align: center;
-      color: #333;
-    }
-
-    .logo-emoji {
-      font-size: 52px;
-      margin-bottom: 10px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    .name {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #4ecdc4, #556270);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .desc {
-      color: #444;
-      font-size: 18px;
-      margin-bottom: 26px;
-      font-weight: 500;
-    }
-
-    .video {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-
-    iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: 0;
-    }
-
-    .actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-    }
-
-    .primary {
-      background: linear-gradient(45deg, #4ecdc4, #2e8b57);
-    }
-
-    .secondary {
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    .comment::before{
+      content:"";
+      position:absolute;
+      top:-10px; left:32px;
+      border-width:0 10px 10px 10px;
+      border-style:solid;
+      border-color:transparent transparent #fff transparent;
     }
   </style>
 </head>
@@ -197,8 +130,19 @@
         <iframe src="https://player.vimeo.com/video/1127441001?h=3a0c6aca49" allowfullscreen></iframe>
       </div>
 
+      <!-- ▼ここから追加 -->
+      <div class="staff">
+        <div class="staff-top">
+          <img src="staff_yamada.jpg" alt="担当者">
+          <div class="name">渡辺パイプ株式会社<br>インテリア事業部<br>山田 太郎</div>
+        </div>
+        <div class="comment">
+          「ミラノサローネで感じた最新のデザイン潮流を、ぜひ皆さまの提案活動にも活かしていただければ幸いです。」
+        </div>
+      </div>
+      <!-- ▲ここまで追加 -->
+
       <div class="actions">
-        <a class="btn primary" href="products_daikin.html">製品紹介ページを見る</a>
         <a class="btn secondary" href="booth.html">他のセミナーを見る</a>
       </div>
     </div>
