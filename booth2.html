@@ -26,23 +26,53 @@
             min-height: 100vh;
             padding: 20px;
         }
+        /* --- ヘッダー修正 --- */
         .header {
-            text-align: center;
-            margin-bottom: 40px;
-            color: #333; /* ヘッダー文字色を黒系に */
-            background: #fff; /* ヘッダー背景白に変更 */
-            padding: 20px;
+            background-color: white;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
             border-radius: 12px;
+            margin-bottom: 40px;
+            position: relative;
         }
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: none;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .header-left button {
+            background: #eee;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
         }
+        .header-left button:hover {
+            background: #ddd;
+        }
+        .header-center {
+            text-align: center;
+            flex: 1;
+        }
+        .header-center h1 {
+            font-size: 1.8rem;
+            margin-bottom: 4px;
+        }
+        .header-center p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .header-right img {
+            height: 50px;
+            width: auto;
+        }
+        /* --- /ヘッダー修正 --- */
+
         /* --- slideshow styles --- */
         .slider-wrap {
             max-width: 600px;
@@ -138,7 +168,7 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
 
-        /* ロゴとタイトルの中央揃え・高さ統一 */
+        /* ここからロゴとタイトルの中央揃え・高さ統一用 */
         .booth-header {
             display: flex;
             flex-direction: column;
@@ -160,8 +190,8 @@
             width: 100%;
         }
         .booth-title.small-title {
-            font-size: 0.9rem; /* 長い社名用 */
-            white-space: nowrap;
+            font-size: 0.9rem; 
+            white-space: nowrap; 
         }
         .booth-description {
             color: #666;
@@ -198,25 +228,7 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-        .back-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            z-index: 1100;
-        }
-        .back-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
+
         .floating-particles {
             position: fixed;
             top: 0;
@@ -256,6 +268,17 @@
                 width: 100%;
                 max-width: 200px;
             }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header-center {
+                text-align: left;
+                margin: 10px 0;
+            }
+            .header-right img {
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -266,6 +289,11 @@
         <div class="particle"></div>
         <div class="particle"></div>
     </div>
+
+    <div class="header">
+        <div class="header-left">
+            <button onclick="goBack()">戻る</button>
+        </div>
     <button class="back-btn" onclick="goBack()"> 戻る</button>
     <div class="header">
         <h1>🏢 ブース会場</h1>
@@ -282,7 +310,6 @@
     </div>
 
     <div class="booth-grid">
-        <!-- TOTO -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
@@ -294,7 +321,6 @@
                 <a href="products_TOTO.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- LIXIL -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
@@ -306,7 +332,6 @@
                 <a href="products_LIXIL.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- タカラスタンダード -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="takarastandardlogo2.png" alt="タカラスタンダード株式会社ロゴ">
@@ -318,7 +343,6 @@
                 <a href="products_takara.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- DAIKEN -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="DAIKENLOGO.png" alt="大建工業株式会社ロゴ">
@@ -330,11 +354,11 @@
                 <a href="products_daiken.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- ダイキンHVAC -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンHVACソリューション東京株式会社ロゴ">
-                <div class="booth-title small-title">ダイキンHVACソリューション東京株式会社</div>
+                <!-- ダイキンHVACソリューション東京株式会社 -->
+<div class="booth-title small-title">ダイキンHVACソリューション東京株式会社</div>
             </div>
             <div class="booth-description">空調・換気システムのトータルソリューションで快適な環境を提供</div>
             <div class="booth-buttons">
@@ -342,11 +366,11 @@
                 <a href="products_daikin.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- パナソニック -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="panalogo.png" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
-                <div class="booth-title small-title">パナソニック ハウジングソリューションズ株式会社</div>
+                <!-- パナソニック ハウジングソリューションズ株式会社 -->
+<div class="booth-title small-title">パナソニック ハウジングソリューションズ株式会社</div>
             </div>
             <div class="booth-description">住まいの総合ソリューションで豊かな住生活を実現する総合メーカー</div>
             <div class="booth-buttons">
@@ -354,7 +378,6 @@
                 <a href="products_panasonic.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- ノーリツ -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="noritzlogo.png" alt="株式会社ノーリツロゴ">
@@ -366,7 +389,6 @@
                 <a href="products_noritz.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- 朝日ウッドテック -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="woodlogo.png" alt="朝日ウッドテック株式会社ロゴ">
@@ -378,7 +400,6 @@
                 <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
         </div>
-        <!-- 渡辺パイプ -->
         <div class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="sedia.png" alt="渡辺パイプ株式会社ロゴ">
@@ -394,4 +415,83 @@
     <script>
         function goBack() {
             // 必ず index.html に戻る
-            window.location.href =
+            window.location.href = "index.html";
+        }
+        // --- slideshow logic 修正版 ---
+        const sliderImages = [
+            "IMG_1185.JPG",
+            "IMG_1220.JPG",
+            "IMG_3380.JPG",
+            "IMG_1310.JPG",
+            "IMG_1222.JPG",
+            "IMG_3380.JPG",
+            "IMG_7761.jpg",
+            "IMG_7839.jpg"
+        ];
+        function initSlider() {
+            const slider = document.getElementById('slider');
+            const dotsWrap = document.getElementById('sliderDots');
+            const slidesWrap = slider.querySelector('.slides');
+            if (!slider || !dotsWrap || !slidesWrap) return;
+            slidesWrap.innerHTML = '';
+            dotsWrap.innerHTML = '';
+            // スライド生成（.slides内に追加）
+            sliderImages.forEach((src, idx) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide' + (idx === 0 ? ' active' : '');
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `スライド${idx + 1}`;
+                slide.appendChild(img);
+                slidesWrap.appendChild(slide);
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (idx === 0 ? ' active' : '');
+                dot.dataset.index = String(idx);
+                dotsWrap.appendChild(dot);
+            });
+            let current = 0;
+            let timer = null;
+            function show(index) {
+                const slides = slidesWrap.querySelectorAll('.slide');
+                const dots = dotsWrap.querySelectorAll('.dot');
+                slides.forEach((s, i) => s.classList.toggle('active', i === index));
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+                current = index;
+            }
+            function next() { show((current + 1) % sliderImages.length); }
+            function prev() { show((current - 1 + sliderImages.length) % sliderImages.length); }
+            function play() {
+                stop();
+                timer = setInterval(next, 4000);
+            }
+            function stop() { if (timer) { clearInterval(timer); timer = null; } }
+            slider.querySelector('.next')?.addEventListener('click', () => { next(); play(); });
+            slider.querySelector('.prev')?.addEventListener('click', () => { prev(); play(); });
+            dotsWrap.addEventListener('click', (e) => {
+                const t = e.target;
+                if (t && t.classList.contains('dot')) {
+                    const i = Number(t.dataset.index || 0);
+                    show(i);
+                    play();
+                }
+            });
+            slider.addEventListener('mouseenter', stop);
+            slider.addEventListener('mouseleave', play);
+            play();
+        }
+        window.addEventListener("load", function() {
+            initSlider();
+            const booths = document.querySelectorAll(".booth");
+            booths.forEach((booth, index) => {
+                booth.style.opacity = "0";
+                booth.style.transform = "translateY(50px)";
+                setTimeout(() => {
+                    booth.style.transition = "all 0.6s ease";
+                    booth.style.opacity = "1";
+                    booth.style.transform = "translateY(0)";
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
