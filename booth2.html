@@ -24,15 +24,18 @@ body {
     font-family: "Arial", sans-serif;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     min-height: 100vh;
-    /* padding: 20px; ← 削除または下だけに変更 */
-    padding: 0 20px 20px 20px; /* 上は0にする */
+    padding: 0 20px 20px 20px; /* 上は0に */
 }
 
-   .header {
+.header {
     background-color: white;
-    width: 100%;
+    width: 100vw;      /* ビューポート幅いっぱい */
     padding: 15px 20px;
     box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    left: 0;
+    right: 0;
 }
 
 /* 左中央右のブロック */
