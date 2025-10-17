@@ -1,154 +1,277 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ブース会場 - WEBビジネス提案会</title>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body {
-        font-family: "Arial", sans-serif;
-        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-        min-height: 100vh;
-        padding-top: 80px; /* ヘッダー固定分の余白 */
-    }
-    /* --- ヘッダー --- */
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        z-index: 1000;
-    }
-    .header-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .back-btn {
-        background: #eee;
-        color: #333;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: 0.2s;
-    }
-    .back-btn:hover {
-        background: #ddd;
-    }
-    .header-center {
-        flex: 1;
-        text-align: center;
-    }
-    .header-center h1 {
-        font-size: 1.5rem;
-        color: #333;
-    }
-    .header-center p {
-        font-size: 0.9rem;
-        color: #666;
-    }
-    .header-right img {
-        height: 40px;
-        width: auto;
-    }
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG0D1B3ETW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    /* --- スライダーやブースグリッドは元のCSSを流用 --- */
-    .slider-wrap {
-        max-width: 600px;
-        margin: 20px auto 40px;
-    }
-    .slider {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(4px);
-    }
-    .slides { width: 100%; }
-    .slider .slide { display: none; }
-    .slider .slide.active { display: block; animation: fade 0.8s ease; }
-    .slider .slide img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
-    .slider .nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.35); color:#fff; border:none; width:44px; height:44px; border-radius:50%; cursor:pointer; display:grid; place-items:center; font-size:22px; transition:0.2s; }
-    .slider .nav:hover { background: rgba(0,0,0,0.5); }
-    .slider .prev { left: 12px; }
-    .slider .next { right: 12px; }
-    .slider .dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:8px; padding:6px 10px; border-radius:999px; background: rgba(0,0,0,0.25); }
-    .slider .dot { width:10px; height:10px; border-radius:50%; background: rgba(255,255,255,0.6); cursor:pointer; transition:0.2s; }
-    .slider .dot.active { transform: scale(1.2); background: #fff; }
-    @keyframes fade { from {opacity:0.4;} to {opacity:1;} }
+  gtag('config', 'G-HG0D1B3ETW');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .booth-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .booth {
-        background: rgba(255,255,255,0.95);
-        border-radius: 20px;
-        padding: 30px;
-        text-align: center;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-    .booth::before {
-        content:"";
-        position:absolute;
-        top:0; left:0; right:0;
-        height:5px;
-        background: linear-gradient(90deg, #ff6b6b,#4ecdc4,#45b7d1,#96ceb4,#feca57,#ff9ff3,#54a0ff,#5f27cd);
-    }
-    .booth:hover { transform:translateY(-10px); box-shadow:0 25px 50px rgba(0,0,0,0.2); }
-    .booth-header { display:flex; flex-direction:column; align-items:center; margin-bottom:15px; }
-    .booth-logo { height:60px; margin-bottom:10px; }
-    .booth-title { font-size:1.5rem; font-weight:bold; color:#333; margin-bottom:10px; text-align:center; }
-    .booth-title.small-title { font-size:0.9rem; white-space:nowrap; }
-    .booth-description { color:#666; margin-bottom:25px; line-height:1.6; }
-    .booth-buttons { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
-    .btn { padding:12px 25px; border:none; border-radius:25px; cursor:pointer; font-size:1rem; font-weight:bold; transition:0.3s; text-decoration:none; min-width:120px; display:inline-block; }
-    .btn-video { background: linear-gradient(45deg, #ff6b6b,#ee5a24); color:white; }
-    .btn-products { background: linear-gradient(45deg, #4ecdc4,#44a08d); color:white; }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
-    @media (max-width:768px) {
-        .booth-grid { grid-template-columns:1fr; gap:20px; }
-        .booth { padding:20px; }
-        .booth-buttons { flex-direction:column; align-items:center; }
-        .btn { width:100%; max-width:200px; }
-    }
-</style>
+    <title>ブース会場 - WEBビジネス提案会</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Arial", sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333; /* ヘッダー文字色を黒系に */
+            background: #fff; /* ヘッダー背景白に変更 */
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: none;
+        }
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        /* --- slideshow styles --- */
+        .slider-wrap {
+            max-width: 600px;
+            margin: 20px auto 40px;
+        }
+        .slider {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+        .slides { width: 100%; }
+        .slider .slide { display: none; }
+        .slider .slide.active { display: block; animation: fade 0.8s ease; }
+        .slider .slide img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .slider .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            transition: background 0.2s ease;
+        }
+        .slider .nav:hover { background: rgba(0, 0, 0, 0.5); }
+        .slider .prev { left: 12px; }
+        .slider .next { right: 12px; }
+        .slider .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+        .slider .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .slider .dot.active { transform: scale(1.2); background: #fff; }
+        @keyframes fade { from { opacity: 0.4; } to { opacity: 1; } }
+        /* --- /slideshow styles --- */
+
+        .booth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .booth {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .booth::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd);
+        }
+        .booth:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ロゴとタイトルの中央揃え・高さ統一 */
+        .booth-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .booth-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .booth-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        .booth-title.small-title {
+            font-size: 0.9rem; /* 長い社名用 */
+            white-space: nowrap;
+        }
+        .booth-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .booth-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            min-width: 120px;
+        }
+        .btn-video {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+        .btn-products {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            z-index: 1100;
+        }
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-particle 8s ease-in-out infinite;
+        }
+        .particle:nth-child(1) { width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; top: 40%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 60%; left: 20%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 12px; height: 12px; top: 80%; left: 70%; animation-delay: 6s; }
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
+        }
+        @media (max-width: 768px) {
+            .booth-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .booth {
+                padding: 20px;
+            }
+            .booth-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-left">
-            <button class="back-btn" onclick="goBack()">戻る</button>
-        </div>
-        <div class="header-center">
-            <h1>🏢 ブース会場</h1>
-            <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
-        </div>
-        <div class="header-right">
-            <img src="【JPG】SEDIAlogo.jpg" alt="会社ロゴ">
-        </div>
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
-
-    <!-- slideshow -->
+    <button class="back-btn" onclick="goBack()"> 戻る</button>
+    <div class="header">
+        <h1>🏢 ブース会場</h1>
+        <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
+    </div>
+    <!-- slideshow insert -->
     <div class="slider-wrap">
         <div id="slider" class="slider">
             <div class="slides"></div>
@@ -159,14 +282,116 @@
     </div>
 
     <div class="booth-grid">
-        <!-- ここに各ブースカードを元のコード通りに挿入 -->
+        <!-- TOTO -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
+                <div class="booth-title">TOTO株式会社</div>
+            </div>
+            <div class="booth-description">水まわり空間のトータルソリューションを提供する総合メーカー</div>
+            <div class="booth-buttons">
+                <a href="seminar_TOTO.html" class="btn btn-video">🎥 商品動画</a>
+                <a href="products_TOTO.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- LIXIL -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
+                <div class="booth-title">株式会社 LIXIL</div>
+            </div>
+            <div class="booth-description">住まいと暮らしの総合住生活ソリューションカンパニー</div>
+            <div class="booth-buttons">
+                <a href="seminar_LIXIL.html" class="btn btn-video">🎥 商品動画</a>
+                <a href="products_LIXIL.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- タカラスタンダード -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="takarastandardlogo2.png" alt="タカラスタンダード株式会社ロゴ">
+                <div class="booth-title">タカラスタンダード株式会社</div>
+            </div>
+            <div class="booth-description">高品質な水まわり製品とシステムキッチンで快適な住空間を創造</div>
+            <div class="booth-buttons">
+                <a href="seminar_takara.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_takara.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- DAIKEN -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="DAIKENLOGO.png" alt="大建工業株式会社ロゴ">
+                <div class="booth-title">DAIKEN株式会社</div>
+            </div>
+            <div class="booth-description">ドア・建具・内装材の総合メーカーとして住空間をトータルサポート</div>
+            <div class="booth-buttons">
+                <a href="seminar_daiken.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_daiken.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- ダイキンHVAC -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンHVACソリューション東京株式会社ロゴ">
+                <div class="booth-title small-title">ダイキンHVACソリューション東京株式会社</div>
+            </div>
+            <div class="booth-description">空調・換気システムのトータルソリューションで快適な環境を提供</div>
+            <div class="booth-buttons">
+                <a href="seminar_daikin.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_daikin.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- パナソニック -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="panalogo.png" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
+                <div class="booth-title small-title">パナソニック ハウジングソリューションズ株式会社</div>
+            </div>
+            <div class="booth-description">住まいの総合ソリューションで豊かな住生活を実現する総合メーカー</div>
+            <div class="booth-buttons">
+                <a href="seminar_panasonic.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_panasonic.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- ノーリツ -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="noritzlogo.png" alt="株式会社ノーリツロゴ">
+                <div class="booth-title">株式会社ノーリツ</div>
+            </div>
+            <div class="booth-description">給湯器・ガス器具のリーディングカンパニーとして快適な住環境を提供</div>
+            <div class="booth-buttons">
+                <a href="seminar_noritz.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_noritz.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- 朝日ウッドテック -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="woodlogo.png" alt="朝日ウッドテック株式会社ロゴ">
+                <div class="booth-title">朝日ウッドテック株式会社</div>
+            </div>
+            <div class="booth-description">高品質な木材・建材で自然と調和した住空間を創造する専門メーカー</div>
+            <div class="booth-buttons">
+                <a href="seminar_woodtec.html" class="btn btn-video">🎥 セミナー動画</a>
+                <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
+            </div>
+        </div>
+        <!-- 渡辺パイプ -->
+        <div class="booth">
+            <div class="booth-header">
+                <img class="booth-logo" src="sedia.png" alt="渡辺パイプ株式会社ロゴ">
+                <div class="booth-title">渡辺パイプ株式会社</div>
+            </div>
+            <div class="booth-description">ミラノサローネ最前線で取材してきました！</div>
+            <div class="booth-buttons">
+                <a href="product_sedia.html" class="btn btn-video">🎥 セミナー動画</a>
+            </div>
+        </div>
     </div>
 
-<script>
-function goBack() {
-    window.location.href = "index.html";
-}
-// スライダー初期化コードは元のまま
-</script>
-</body>
-</html>
+    <script>
+        function goBack() {
+            // 必ず index.html に戻る
+            window.location.href =
