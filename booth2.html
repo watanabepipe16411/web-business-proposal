@@ -27,22 +27,44 @@
             padding: 20px;
         }
         /* --- ヘッダー修正 --- */
-       .header {
+ /* ヘッダー全体の白背景 */
+.header {
     background-color: white;
-    color: #333;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    /* border-radius: 12px; ← 削除 */
-    margin-bottom: 40px;
-    position: relative;
+    padding: 15px 20px;
+    box-sizing: border-box;
 }
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+
+/* 左中央右のブロック */
+.header-left { flex: 0 0 auto; }
+.header-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+.header-right { flex: 0 0 auto; }
+
+/* 戻るボタンのデザインは元のまま */
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.back-btn:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+/* 社名ロゴ */
+.company-logo {
+    height: 40px;
+    width: auto;
+}
         .header-left button {
             background: #eee;
             border: none;
