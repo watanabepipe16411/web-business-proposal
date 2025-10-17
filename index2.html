@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG0D1B3ETW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HG0D1B3ETW');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渡辺パイプWEBビジネス提案会 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Arial", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounceIn 1s;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.6); opacity: 0; }
+            60% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: fadeInUp 1.5s;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .entrance-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4);}
+            70% { box-shadow: 0 0 30px 20px rgba(255,107,107,0);}
+            100% { box-shadow: 0 0 0 0 rgba(255,107,107,0);}
+        }
+
+        .entrance-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .entrance-btn:hover::before {
+            left: 100%;
+        }
+
+        .entrance-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .entrance-btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .password-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            animation: fadeInModal 0.7s;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.8);}
+            to { opacity: 1; transform: scale(1);}
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            background: linear-gradient(45deg, #23d160, #00c4cc);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite alternate;
+            filter: blur(2px);
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            top: 10%;
+            left: 70%;
+            animation-delay: 3s;
+        }
+
+        .floating-element:nth-child(5) {
+            width: 100px;
+            height: 100px;
+            top: 70%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1);}
+            30% { transform: translateY(-30px) rotate(90deg) scale(1.1);}
+            60% { transform: translateY(10px) rotate(180deg) scale(0.95);}
+        }
+
+        .features {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            animation: featureFadeIn 1.2s;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
+            background: rgba(255,255,255,0.85);
+        }
+
+        @keyframes featureFadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            animation: iconPop 1.2s;
+        }
+
+        @keyframes iconPop {
+            0% { transform: scale(0.5); opacity: 0;}
+            60% { transform: scale(1.1);}
+            100% { transform: scale(1); opacity: 1;}
+        }
+
+        .feature-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .feature-desc {
+            font-size: 0.97rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 10px;
+            }
+            
+            .logo {
+                font-size: 2.3rem;
+            }
+            
+            .entrance-btn {
+                padding: 14px 25px;
+                font-size: 1.02rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <h1 class="logo">渡辺パイプ株式会社<br>WEBビジネス提案会</h1>
+        <p class="subtitle">最新情報セミナー動画 & おすすめ商品をチェック</p>
+        
+        <button class="entrance-btn" onclick="showPasswordModal()">
+            <span id="btn-emoji">🚀</span> ブース会場へ入場する
+        </button>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🎥</div>
+                <div class="feature-title">セミナー動画</div>
+                <div class="feature-desc">最新情報を動画で確認</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛍️</div>
+                <div class="feature-title">おすすめ商品</div>
+                <div class="feature-desc">厳選された商品ラインナップ</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏢</div>
+                <div class="feature-title">8社ブース</div>
+                <div class="feature-desc">各メーカーの専用ブース</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="password-modal" id="passwordModal">
+        <div class="password-container">
+            <h2>🔐 アクセス認証</h2>
+            <p>ブース会場へアクセスするにはパスワードが必要です</p>
+            <input type="password" class="password-input" id="passwordInput" placeholder="パスワードを入力してください">
+            <br>
+            <button class="submit-btn" onclick="checkPassword()">入場する</button>
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+    </div>
+
+    <script>
+        // 入口ボタンの絵文字をアニメーション
+        function animateEmoji() {
+            const emoji = document.getElementById("btn-emoji");
+            emoji.animate([
+                { transform: "translateY(0)" },
+                { transform: "translateY(-10px)" },
+                { transform: "translateY(0)" }
+            ], {
+                duration: 700,
+                iterations: Infinity
+            });
+        }
+        animateEmoji();
+
+        function showPasswordModal() {
+            document.getElementById("passwordModal").style.display = "flex";
+            document.getElementById("passwordInput").focus();
+        }
+
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+            const errorMessage = document.getElementById("errorMessage");
+            
+            // パスワードは "sedia2025" に設定
+            if (password === "sedia2025") {
+                window.location.href = "booth.html";
+            } else {
+                errorMessage.textContent = "パスワードが正しくありません。もう一度お試しください。";
+                document.getElementById("passwordInput").value = "";
+            }
+        }
+
+        // Enterキーでパスワード送信
+        document.getElementById("passwordInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkPassword();
+            }
+        });
+
+        // モーダル外クリックで閉じる
+        document.getElementById("passwordModal").addEventListener("click", function(e) {
+            if (e.target === this) {
+                this.style.display = "none";
+                document.getElementById("passwordInput").value = "";
+                document.getElementById("errorMessage").textContent = "";
+            }
+        });
+
+        // ページロード時にfeatureカードをランダムな位置・タイミングでポップアップ
+        window.onload = function() {
+            document.querySelectorAll('.feature').forEach((el, i) => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        el.style.transform = '';
+                    }, 600);
+                }, 400 + i * 350);
+            });
+        };
+    </script>
+</body>
+</html>
+
