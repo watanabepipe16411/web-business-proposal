@@ -27,17 +27,17 @@
             padding: 20px;
         }
         /* --- ヘッダー修正 --- */
-        .header {
-            background-color: white;
-            color: #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            position: relative;
-        }
+       .header {
+    background-color: white;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /* border-radius: 12px; ← 削除 */
+    margin-bottom: 40px;
+    position: relative;
+}
         .header-left {
             display: flex;
             align-items: center;
@@ -289,18 +289,18 @@
         <div class="particle"></div>
     </div>
 
-    <div class="header">
-        <div class="header-left">
-            <button onclick="goBack()">戻る</button>
-        </div>
-        <div class="header-center">
-            <h1>🏢 ブース会場</h1>
-            <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
-        </div>
-        <div class="header-right">
-            <img src="company_logo.png" alt="社名ロゴ">
-        </div>
+  <div class="header">
+    <div class="header-left">
+        <button class="back-btn" onclick="goBack()">戻る</button>
     </div>
+    <div class="header-center">
+        <h1>🏢 ブース会場</h1>
+        <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
+    </div>
+    <div class="header-right">
+        <img src="【JPG】SEDIAlogo.jpg" alt="社名ロゴ" class="company-logo">
+    </div>
+</div>
 
     <!-- slideshow insert -->
     <div class="slider-wrap">
