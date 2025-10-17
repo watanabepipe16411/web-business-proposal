@@ -13,7 +13,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>渡辺パイプWEBビジネス提案会 2025</title>
-
 <style>
     * {
         margin: 0;
@@ -60,22 +59,15 @@
         100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
     }
 
-    /* ▼ ロゴ部分（テキスト→画像） */
+    .logo {
+        margin-bottom: 20px;
+        animation: bounceIn 1s;
+    }
+
     .logo img {
         width: 280px;
         max-width: 80%;
         height: auto;
-        margin-bottom: 12px;
-        animation: bounceIn 1s;
-    }
-
-    .logo-text {
-        font-size: 2.3rem;
-        font-weight: bold;
-        background: linear-gradient(45deg, #0072ff, #00c6ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     @keyframes bounceIn {
@@ -84,9 +76,16 @@
         100% { transform: scale(1); }
     }
 
+    .logo-text {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
     .subtitle {
         font-size: 1.2rem;
-        color: #666;
+        color: #555;
         margin-bottom: 40px;
         font-weight: 300;
         animation: fadeInUp 1.5s;
@@ -98,7 +97,7 @@
     }
 
     .entrance-btn {
-        background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
         color: white;
         padding: 20px 50px;
         font-size: 1.3rem;
@@ -107,84 +106,24 @@
         border-radius: 50px;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 114, 255, 0.3);
         position: relative;
         overflow: hidden;
         animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4);}
-        70% { box-shadow: 0 0 30px 20px rgba(255,107,107,0);}
-        100% { box-shadow: 0 0 0 0 rgba(255,107,107,0);}
+        0% { box-shadow: 0 0 0 0 rgba(0,114,255,0.4);}
+        70% { box-shadow: 0 0 30px 20px rgba(0,114,255,0);}
+        100% { box-shadow: 0 0 0 0 rgba(0,114,255,0);}
     }
 
     .entrance-btn:hover {
         transform: translateY(-3px) scale(1.05);
-        background: linear-gradient(45deg, #ff9966, #ff5e62);
-        box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        background: linear-gradient(45deg, #5ee7df, #b490ca);
     }
 
-    .password-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .password-container {
-        background: white;
-        padding: 40px;
-        border-radius: 15px;
-        text-align: center;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        max-width: 400px;
-        width: 90%;
-        animation: fadeInModal 0.7s;
-    }
-
-    @keyframes fadeInModal {
-        from { opacity: 0; transform: scale(0.8);}
-        to { opacity: 1; transform: scale(1);}
-    }
-
-    .password-input {
-        width: 100%;
-        padding: 15px;
-        font-size: 1.1rem;
-        border: 2px solid #ddd;
-        border-radius: 10px;
-        margin: 20px 0;
-        text-align: center;
-    }
-
-    .password-input:focus {
-        outline: none;
-        border-color: #66a6ff;
-        box-shadow: 0 0 10px rgba(102, 166, 255, 0.3);
-    }
-
-    .submit-btn {
-        background: linear-gradient(45deg, #89f7fe, #66a6ff);
-        color: white;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .submit-btn:hover {
-        transform: translateY(-2px) scale(1.05);
-        background: linear-gradient(45deg, #00c6ff, #0072ff);
-    }
+    /* ====== 以下、元コードの浮遊エフェクトやfeatures部分を維持 ====== */
 
     .floating-elements {
         position: fixed;
@@ -204,6 +143,46 @@
         filter: blur(2px);
     }
 
+    .floating-element:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 60%;
+        right: 10%;
+        animation-delay: 2s;
+    }
+
+    .floating-element:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+    }
+
+    .floating-element:nth-child(4) {
+        width: 40px;
+        height: 40px;
+        top: 10%;
+        left: 70%;
+        animation-delay: 3s;
+    }
+
+    .floating-element:nth-child(5) {
+        width: 100px;
+        height: 100px;
+        top: 70%;
+        left: 60%;
+        animation-delay: 1s;
+    }
+
     @keyframes float {
         0%, 100% { transform: translateY(0px) rotate(0deg) scale(1);}
         30% { transform: translateY(-30px) rotate(90deg) scale(1.1);}
@@ -218,21 +197,46 @@
     }
 
     .feature {
-        background: rgba(102, 166, 255, 0.1);
+        background: rgba(102, 126, 234, 0.1);
         padding: 20px;
         border-radius: 15px;
-        border: 1px solid rgba(102, 166, 255, 0.2);
+        border: 1px solid rgba(102, 126, 234, 0.2);
+        animation: featureFadeIn 1.2s;
         transition: transform 0.3s;
     }
 
     .feature:hover {
         transform: translateY(-10px) scale(1.03);
-        box-shadow: 0 8px 16px rgba(102, 166, 255, 0.15);
+        box-shadow: 0 8px 16px rgba(102, 126, 234, 0.15);
         background: rgba(255,255,255,0.85);
     }
 
-    @media (max-width: 768px) {
-        .logo-text { font-size: 1.9rem; }
+    @keyframes featureFadeIn {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 12px;
+        animation: iconPop 1.2s;
+    }
+
+    @keyframes iconPop {
+        0% { transform: scale(0.5); opacity: 0;}
+        60% { transform: scale(1.1);}
+        100% { transform: scale(1); opacity: 1;}
+    }
+
+    .feature-title {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .feature-desc {
+        font-size: 0.97rem;
+        color: #666;
     }
 </style>
 </head>
@@ -247,11 +251,11 @@
 
     <div class="container">
         <div class="logo">
-            <img src="watanabe_logo.png" alt="渡辺パイプ株式会社 ロゴ">
-            <div class="logo-text">WEBビジネス提案会 2025</div>
+            <img src="watanabe_logo.png" alt="渡辺パイプ ロゴ">
         </div>
+        <div class="logo-text">WEBビジネス提案会 2025</div>
         <p class="subtitle">最新情報セミナー動画 & おすすめ商品をチェック</p>
-        
+
         <button class="entrance-btn" onclick="showPasswordModal()">
             <span id="btn-emoji">🚀</span> ブース会場へ入場する
         </button>
