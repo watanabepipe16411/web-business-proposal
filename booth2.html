@@ -31,12 +31,19 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    width: 100%;
-    padding: 15px 20px;
-    box-sizing: border-box;
+    width: 100vw;          /* ビューポート幅いっぱい */
     position: sticky;
     top: 0;
+    padding: 15px 20px;
+    box-sizing: border-box;
     z-index: 1000;
+    left: 0;               /* 左右固定 */
+}
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    padding: 0;            /* ヘッダーはpaddingなし */
 }
 
 .header-left,
@@ -257,25 +264,25 @@ body {
     </style>
 </head>
 <body>
-    <div class="floating-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
 
   <div class="header">
     <div class="header-left">
-        <button class="back-btn" onclick="goBack()">戻る</button>
+      <button class="back-btn" onclick="goBack()">戻る</button>
     </div>
     <div class="header-center">
-        <h1>🏢 ブース会場</h1>
-        <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
+      <h1>🏢 ブース会場</h1>
+      <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
     </div>
     <div class="header-right">
-        <img src="SEDIAlogo.jpg" alt="社名ロゴ" class="company-logo">
+      <img src="【JPG】SEDIAlogo.jpg" alt="社名ロゴ" class="company-logo">
     </div>
-</div>
+  </div>
 
     <!-- slideshow insert -->
     <div class="slider-wrap">
