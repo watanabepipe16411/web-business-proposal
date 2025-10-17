@@ -20,12 +20,14 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
-            font-family: "Arial", sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    /* padding: 20px; ← 削除または下だけに変更 */
+    padding: 0 20px 20px 20px; /* 上は0にする */
+}
+
         /* --- ヘッダー修正 --- */
  /* ヘッダー全体の白背景 */
 .header {
