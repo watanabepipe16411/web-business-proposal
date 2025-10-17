@@ -33,11 +33,12 @@ body {
 .header {
     background-color: white;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 15px 20px;
     box-sizing: border-box;
+    margin: 0; /* bodyのpaddingに影響されないようにする */
+    position: relative;
+    left: 0;
+    right: 0;
 }
 
 /* 左中央右のブロック */
