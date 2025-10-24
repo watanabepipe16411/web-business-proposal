@@ -141,10 +141,20 @@
 
         /* メディアクエリ：スマホ対応 */
         @media (max-width: 768px) {
-            .booth-grid { grid-template-columns: 1fr; gap: 20px; }
-            .booth { padding: 20px; }
+            /* ここを1列から2列に変更 */
+            .booth-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                max-width: 100%;
+                padding: 12px;
+                margin: 0 auto;
+            }
+            .booth { padding: 16px; }
+            .booth-logo { height: 50px; }
+            /* 小さい社名は折り返し許可 */
+            .booth-title.small-title { white-space: normal; font-size: 0.95rem; }
             .booth-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 200px; }
+            .btn { width: 100%; max-width: 220px; }
 
             /* ヘッダー縦並び＆右上ロゴ固定 */
             .header {
@@ -174,228 +184,5 @@
                 font-size: 0.9rem;
             }
         }
-    </style>
-</head>
-<body>
-    <div class="floating-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-    
-    <!-- ヘッダー -->
-    <div class="header">
-        <div class="header-left">
-            <button class="back-btn" onclick="goBack()">戻る</button>
-        </div>
-        <div class="header-center">
-            <h1>🏢 ブース会場</h1>
-            <p>各メーカーのブースで最新情報と商品をチェックしよう！</p>
-        </div>
-        <div class="header-right">
-            <img src="【JPG】SEDIAlogo.jpg" alt="社名ロゴ" class="company-logo">
-        </div>
-    </div>
 
-    <!-- スライダー -->
-    <div class="slider-wrap">
-        <div id="slider" class="slider">
-            <div class="slides"></div>
-            <button class="nav prev" aria-label="前へ">‹</button>
-            <button class="nav next" aria-label="次へ">›</button>
-            <div class="dots" id="sliderDots"></div>
-        </div>
-    </div>
-
-    <div class="booth-grid">
-        <!-- ここから全ブースを省略せずに表示 -->
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
-                <div class="booth-title">TOTO株式会社</div>
-            </div>
-            <div class="booth-description">水まわり空間のトータルソリューションを提供する総合メーカー</div>
-            <div class="booth-buttons">
-                <a href="seminar_TOTO.html" class="btn btn-video">🎥 商品動画</a>
-                <a href="products_TOTO.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
-                <div class="booth-title">株式会社 LIXIL</div>
-            </div>
-            <div class="booth-description">住まいと暮らしの総合住生活ソリューションカンパニー</div>
-            <div class="booth-buttons">
-                <a href="seminar_LIXIL.html" class="btn btn-video">🎥 商品動画</a>
-                <a href="products_LIXIL.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="takarastandardlogo2.png" alt="タカラスタンダード株式会社ロゴ">
-                <div class="booth-title">タカラスタンダード株式会社</div>
-            </div>
-            <div class="booth-description">高品質な水まわり製品とシステムキッチンで快適な住空間を創造</div>
-            <div class="booth-buttons">
-                <a href="seminar_takara.html" class="btn btn-video">🎥 セミナー動画</a>
-                <a href="products_takara.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="DAIKENLOGO.png" alt="大建工業株式会社ロゴ">
-                <div class="booth-title">DAIKEN株式会社</div>
-            </div>
-            <div class="booth-description">ドア・建具・内装材の総合メーカーとして住空間をトータルサポート</div>
-            <div class="booth-buttons">
-                <a href="seminar_daiken.html" class="btn btn-video">🎥 セミナー動画</a>
-                <a href="products_daiken.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンHVACソリューション東京株式会社ロゴ">
-                <div class="booth-title small-title">ダイキンHVACソリューション東京株式会社</div>
-            </div>
-            <div class="booth-description">空調・換気システムのトータルソリューションで快適な環境を提供</div>
-            <div class="booth-buttons">
-                <a href="seminar_daikin.html" class="btn btn-video">🎥 セミナー動画</a>
-                <a href="products_daikin.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="panalogo.png" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
-                <div class="booth-title small-title">パナソニック ハウジングソリューションズ株式会社</div>
-            </div>
-            <div class="booth-description">住まいの総合ソリューションで豊かな住生活を実現する総合メーカー</div>
-            <div class="booth-buttons">
-                <a href="seminar_panasonic.html" class="btn btn-video">🎥 セミナー動画</a>
-                <a href="products_panasonic.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="noritzlogo.png" alt="株式会社ノーリツロゴ">
-                <div class="booth-title">株式会社ノーリツ</div>
-            </div>
-            <div class="booth-description">給湯器・ガス器具のリーディングカンパニーとして快適な住環境を提供</div>
-            <div class="booth-buttons">
-                <a href="seminar_noritz.html" class="btn btn-video">🎥 セミナー動画</a>
-                <a href="products_noritz.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="woodlogo.png" alt="朝日ウッドテック株式会社ロゴ">
-                <div class="booth-title">朝日ウッドテック株式会社</div>
-            </div>
-            <div class="booth-description">高品質な木材・建材で自然と調和した住空間を創造する専門メーカー</div>
-            <div class="booth-buttons">
-                <a href="seminar_woodtec.html" class="btn btn-video">🎥 セミナー動画</a>
-                <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
-            </div>
-        </div>
-
-        <div class="booth">
-            <div class="booth-header">
-                <img class="booth-logo" src="【JPG】SEDIAlogo.jpg" alt="渡辺パイプ株式会社ロゴ">
-                <div class="booth-title">渡辺パイプ株式会社</div>
-            </div>
-            <div class="booth-description">ミラノサローネ最前線で取材してきました！</div>
-            <div class="booth-buttons">
-                <a href="product_sedia.html" class="btn btn-video">🎥 セミナー動画</a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function goBack() {
-            window.location.href = "index.html";
-        }
-
-        const sliderImages = [
-            "IMG_1185.jpg",
-            "IMG_1220.jpg",
-            "IMG_3380.jpg",
-            "IMG_1310.jpg",
-            "IMG_1222.jpg",
-            "IMG_3380.jpg",
-            "IMG_7761.jpg",
-            "IMG_7839.jpg"
-        ];
-        function initSlider() {
-            const slider = document.getElementById('slider');
-            const dotsWrap = document.getElementById('sliderDots');
-            const slidesWrap = slider.querySelector('.slides');
-            if (!slider || !dotsWrap || !slidesWrap) return;
-            slidesWrap.innerHTML = '';
-            dotsWrap.innerHTML = '';
-            sliderImages.forEach((src, idx) => {
-                const slide = document.createElement('div');
-                slide.className = 'slide' + (idx === 0 ? ' active' : '');
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = `スライド${idx + 1}`;
-                slide.appendChild(img);
-                slidesWrap.appendChild(slide);
-                const dot = document.createElement('div');
-                dot.className = 'dot' + (idx === 0 ? ' active' : '');
-                dot.dataset.index = String(idx);
-                dotsWrap.appendChild(dot);
-            });
-            let current = 0;
-            let timer = null;
-            function show(index) {
-                const slides = slidesWrap.querySelectorAll('.slide');
-                const dots = dotsWrap.querySelectorAll('.dot');
-                slides.forEach((s, i) => s.classList.toggle('active', i === index));
-                dots.forEach((d, i) => d.classList.toggle('active', i === index));
-                current = index;
-            }
-            function next() { show((current + 1) % sliderImages.length); }
-            function prev() { show((current - 1 + sliderImages.length) % sliderImages.length); }
-            function play() {
-                stop();
-                timer = setInterval(next, 4000);
-            }
-            function stop() { if (timer) { clearInterval(timer); timer = null; } }
-            slider.querySelector('.next')?.addEventListener('click', () => { next(); play(); });
-            slider.querySelector('.prev')?.addEventListener('click', () => { prev(); play(); });
-            dotsWrap.addEventListener('click', (e) => {
-                const t = e.target;
-                if (t && t.classList.contains('dot')) {
-                    const i = Number(t.dataset.index || 0);
-                    show(i);
-                    play();
-                }
-            });
-            slider.addEventListener('mouseenter', stop);
-            slider.addEventListener('mouseleave', play);
-            play();
-        }
-        window.addEventListener("load", function() {
-            initSlider();
-            const booths = document.querySelectorAll(".booth");
-            booths.forEach((booth, index) => {
-                booth.style.opacity = "0";
-                booth.style.transform = "translateY(50px)";
-                setTimeout(() => {
-                    booth.style.transition = "all 0.6s ease";
-                    booth.style.opacity = "1";
-                    booth.style.transform = "translateY(0)";
-                }, index * 100);
-            });
-        });
-    </script>
-</body>
-</html>
+        /* 極小幅デバイスでは1列に戻す（必要ならこのブロックを調整／
