@@ -10,173 +10,141 @@
       gtag('config', 'G-HG0D1B3ETW');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ブース会場 - WEBビジネス提案会</title>
 
     <style>
         /* リセット */
         * { margin:0; padding:0; box-sizing:border-box; }
-        html,body { height:100%; }
+        html, body { height:100%; }
 
         body {
             font-family: "Arial", sans-serif;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
-            margin: 0;
-            padding-bottom: 40px;
             color: #222;
+            padding-bottom: 24px;
         }
 
         /* ヘッダー */
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #fff;
-            width: 100%;
-            padding: 15px 20px;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 3;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            background:#fff;
+            padding:14px 18px;
+            position:relative;
+            z-index:3;
         }
-        .header-left { flex: 0 0 auto; }
-        .header-center { flex: 1 1 auto; text-align: center; }
-        .header-right { flex: 0 0 auto; text-align: right; }
-
+        .header-left { flex:0 0 auto; }
+        .header-center { flex:1 1 auto; text-align:center; }
+        .header-right { flex:0 0 auto; text-align:right; }
         .back-btn {
             background: rgba(0,0,0,0.06);
-            color: #222;
-            padding: 8px 16px;
             border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.95rem;
+            padding:8px 14px;
+            border-radius:20px;
+            cursor:pointer;
+            font-size:0.95rem;
         }
-        .back-btn:hover { background: rgba(0,0,0,0.08); }
+        .header-center h1 { font-size:1.4rem; margin-bottom:4px; }
+        .header-center p { font-size:0.95rem; opacity:0.85; }
 
-        .header-center h1 { font-size: 1.4rem; margin-bottom: 4px; }
-        .header-center p { font-size: 0.95rem; opacity: 0.85; }
+        .company-logo { height:64px; object-fit:contain; }
 
-        .header-right img.company-logo {
-            height: 64px;
-            width: auto;
-            object-fit: contain;
-        }
+        /* スライダー（簡易）*/
+        .slider-wrap { max-width:900px; margin:18px auto 28px; padding:0 12px; }
+        .slider { position:relative; border-radius:12px; overflow:hidden; background: rgba(255,255,255,0.08); }
+        .slides img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; }
 
-        /* スライダー */
-        .slider-wrap { max-width: 900px; margin: 18px auto 30px; padding: 0 16px; }
-        .slider { position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 18px 36px rgba(0,0,0,0.18); background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); }
-        .slides { width: 100%; }
-        .slide { display: none; }
-        .slide.active { display: block; animation: fade 0.6s ease; }
-        .slide img { width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; }
-        .slider .nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.35); color: #fff; border: none; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; font-size: 20px; transition: background 0.18s ease; z-index: 5; }
-        .slider .prev { left: 12px; }
-        .slider .next { right: 12px; }
-        .slider .nav:hover { background: rgba(0,0,0,0.55); }
-        .slider .dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,0.22); z-index: 5; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.6); cursor: pointer; transition: transform .18s, background .18s; }
-        .dot.active { transform: scale(1.2); background: #fff; }
-        @keyframes fade { from { opacity: .4 } to { opacity: 1 } }
-
-        /* ブースグリッド：デフォルトは1列（極小端末用） */
+        /* ブースグリッド（デフォルトは1列。メディアクエリで上書き） */
         .booth-grid {
-            display: grid;
+            display:grid;
             grid-template-columns: 1fr;
-            gap: 18px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 12px;
+            gap:16px;
+            max-width:1200px;
+            margin:0 auto;
+            padding:12px;
         }
 
         .booth {
             background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            padding: 18px;
-            text-align: center;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.09);
-            position: relative;
-            overflow: hidden;
-            opacity: 1;              /* 常に見えるようにする */
-            transform: none;
-            visibility: visible;
-            transition: transform .28s ease, box-shadow .28s ease;
+            border-radius:14px;
+            padding:16px;
+            text-align:center;
+            box-shadow:0 12px 26px rgba(0,0,0,0.08);
+            position:relative;
+            overflow:hidden;
+            opacity:1;
+            transform:none;
         }
         .booth::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3, #54a0ff, #5f27cd);
+            content:"";
+            position:absolute;
+            top:0; left:0; right:0;
+            height:5px;
+            background: linear-gradient(90deg,#ff6b6b,#4ecdc4,#45b7d1,#96ceb4,#feca57,#ff9ff3,#54a0ff,#5f27cd);
         }
-        .booth:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.14); }
 
-        .booth-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 10px; }
-        .booth-logo { height: 56px; width: auto; margin-bottom: 8px; display:block; }
-        .booth-title { font-size: 1.05rem; font-weight: 700; color: #333; margin-bottom: 8px; text-align: center; width: 100%; }
-        .booth-title.small-title { font-size: 0.95rem; white-space: nowrap; }
-        .booth-description { color: #666; margin-bottom: 12px; line-height: 1.5; font-size: 0.95rem; }
-        .booth-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 10px 18px; border: none; border-radius: 22px; cursor: pointer; font-size: 0.95rem; font-weight: 700; text-decoration: none; display: inline-block; min-width: 110px; color: #fff; }
+        .booth-header { display:flex; flex-direction:column; align-items:center; margin-bottom:10px; }
+        .booth-logo { height:56px; width:auto; margin-bottom:8px; display:block; }
+        .booth-title { font-size:1.05rem; font-weight:700; color:#333; margin-bottom:8px; }
+        .booth-title.small-title { font-size:0.95rem; white-space:nowrap; }
+        .booth-description { color:#666; margin-bottom:12px; line-height:1.5; font-size:0.95rem; }
+
+        /* ← ここを重要：ボタンは常に上下（縦並び）に戻す */
+        .booth-buttons {
+            display:flex;
+            flex-direction:column; /* 常に縦並び（上下） */
+            gap:10px;
+            align-items:center;
+            justify-content:center;
+        }
+        .btn {
+            display:inline-block;
+            padding:10px 18px;
+            border-radius:22px;
+            text-decoration:none;
+            font-weight:700;
+            color:#fff;
+            min-width:140px;
+            text-align:center;
+        }
         .btn-video { background: linear-gradient(45deg,#ff6b6b,#ee5a24); }
         .btn-products { background: linear-gradient(45deg,#4ecdc4,#44a08d); }
-        .btn:hover { filter: brightness(.98); transform: translateY(-2px); }
 
-        /* アニメーション（JSが有効な場合に付与するクラス用） */
-        .booth.animate { opacity: 0; transform: translateY(18px); animation: fadeUp 0.6s forwards; }
-        @keyframes fadeUp { to { opacity:1; transform: translateY(0); } }
+        /* 浮遊パーティクル（装飾） */
+        .floating-particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
+        .particle { position:absolute; background: rgba(255,255,255,0.06); border-radius:50%; }
+        .particle:nth-child(1){ width:10px; height:10px; top:20%; left:10%; }
+        .particle:nth-child(2){ width:14px; height:14px; top:40%; left:80%; }
+        .particle:nth-child(3){ width:8px; height:8px; top:60%; left:22%; }
+        .particle:nth-child(4){ width:12px; height:12px; top:80%; left:70%; }
 
-        /* 浮遊パーティクル（視覚効果） */
-        .floating-particles { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
-        .particle { position:absolute; background: rgba(255,255,255,0.06); border-radius:50%; animation: float-particle 8s ease-in-out infinite; }
-        .particle:nth-child(1){ width:10px; height:10px; top:20%; left:8%; animation-delay:0s; }
-        .particle:nth-child(2){ width:16px; height:16px; top:42%; left:78%; animation-delay:2s; }
-        .particle:nth-child(3){ width:8px; height:8px; top:62%; left:22%; animation-delay:4s; }
-        .particle:nth-child(4){ width:12px; height:12px; top:82%; left:68%; animation-delay:6s; }
-        @keyframes float-particle { 0%,100%{ transform:translateY(0) rotate(0); opacity:0.25;} 50% { transform:translateY(-28px) rotate(180deg); opacity:0.8;} }
-
-        /* レスポンシブレイアウト（PC 3列 / タブレット・スマホ 2列 / 極小は1列） */
-        /* PC: 横3列 (>= 992px) */
+        /* レスポンシブ：PCは横3列、モバイルは横2列にする（要求どおり） */
+        /* PC: 横3列 */
         @media (min-width: 992px) {
-            .booth-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 20px; max-width: 1200px; }
-            .booth { padding: 22px; }
-            .booth-logo { height: 64px; }
-            .header-center h1 { font-size: 1.6rem; }
+            .booth-grid { grid-template-columns: repeat(3, 1fr); gap:20px; padding:20px; }
+            .booth { padding:20px; }
+            .booth-logo { height:64px; }
         }
 
-        /* タブレット〜スマホ（広め）: 横2列 (>= 421px and <= 991px) */
-        @media (min-width: 421px) and (max-width: 991px) {
-            .booth-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 16px; max-width: 900px; }
-            .booth { padding: 18px; }
-            .booth-logo { height: 56px; }
-            .booth-title { font-size: 1.05rem; }
-            .booth-buttons { gap: 8px; }
+        /* モバイル/タブレット: 横2列にする（スマホでも2列にしたいとのこと） */
+        @media (max-width: 991px) {
+            .booth-grid { grid-template-columns: repeat(2, 1fr); gap:14px; padding:12px; }
+            .booth { padding:14px; }
+            .booth-logo { height:54px; }
+            .booth-title { font-size:1rem; }
+            /* ボタンは上で常に縦並びにしているのでここでは触らない */
         }
 
-        /* スマホ（<= 420px）：横2列にしたい場合はこの境界を調整します。
-           デフォルトはここで1列にしているので、スマホ全体を2列にするなら max-width: 420px の設定を変更してください。
-           ここでは 420px 以下は1列に戻します（狭すぎる画面での可読性のため）。
-        */
-        @media (max-width: 420px) {
-            .booth-grid { grid-template-columns: 1fr; gap: 12px; padding: 12px; }
-            .booth { padding: 14px; }
-            .booth-logo { height: 48px; }
-            .header-center h1 { font-size: 1.2rem; }
-            .btn { width: 100%; max-width: 100%; }
+        /* 極小端末（必要に応じて1列に戻したい場合はこのブレークポイントを調整） */
+        @media (max-width: 360px) {
+            /* もし本当に狭すぎて見づらければここを1列に戻す（今は2列優先なのでコメントアウト） */
+            /* .booth-grid { grid-template-columns: 1fr; } */
+            .btn { min-width:120px; }
         }
-
-        /* スマホを強制的に2列にしたい場合（例: iPhone 等）、
-           もし「スマホでも必ず2列」にしたければ下のコメントを外して使用してください。
-        */
-        /*
-        @media (max-width: 420px) {
-            .booth-grid { grid-template-columns: repeat(2,1fr) !important; gap: 10px; padding: 8px; }
-            .booth { padding: 10px; }
-            .booth-logo { height: 44px; }
-            .btn { max-width: 160px; width: 100%; }
-        }
-        */
     </style>
 </head>
 <body>
@@ -204,16 +172,15 @@
     <!-- スライダー -->
     <div class="slider-wrap" aria-hidden="false">
         <div id="slider" class="slider" role="region" aria-label="会場写真スライダー">
-            <div class="slides" role="list"></div>
-            <button class="nav prev" aria-label="前へ">‹</button>
-            <button class="nav next" aria-label="次へ">›</button>
-            <div class="dots" id="sliderDots" role="tablist" aria-label="スライド切替ドット"></div>
+            <div class="slides" role="list">
+                <!-- 画像はJSで差し替えます。静的に入れる場合は<img>タグをここに置いてください -->
+            </div>
         </div>
     </div>
 
     <!-- ブースグリッド -->
     <main class="booth-grid" role="main">
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="TOTOlogo.png" alt="TOTO株式会社ロゴ">
                 <div class="booth-title">TOTO株式会社</div>
@@ -223,9 +190,9 @@
                 <a href="seminar_TOTO.html" class="btn btn-video">🎥 商品動画</a>
                 <a href="products_TOTO.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="LIXILlogo.png" alt="株式会社 LIXILロゴ">
                 <div class="booth-title">株式会社 LIXIL</div>
@@ -235,9 +202,9 @@
                 <a href="seminar_LIXIL.html" class="btn btn-video">🎥 商品動画</a>
                 <a href="products_LIXIL.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="takarastandardlogo2.png" alt="タカラスタンダード株式会社ロゴ">
                 <div class="booth-title">タカラスタンダード株式会社</div>
@@ -247,9 +214,9 @@
                 <a href="seminar_takara.html" class="btn btn-video">🎥 セミナー動画</a>
                 <a href="products_takara.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="DAIKENLOGO.png" alt="大建工業株式会社ロゴ">
                 <div class="booth-title">DAIKEN株式会社</div>
@@ -259,9 +226,9 @@
                 <a href="seminar_daiken.html" class="btn btn-video">🎥 セミナー動画</a>
                 <a href="products_daiken.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="DAIKINロLOGO.png" alt="ダイキンHVACソリューション東京株式会社ロゴ">
                 <div class="booth-title small-title">ダイキンHVACソリューション東京株式会社</div>
@@ -271,9 +238,9 @@
                 <a href="seminar_daikin.html" class="btn btn-video">🎥 セミナー動画</a>
                 <a href="products_daikin.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="panalogo.png" alt="パナソニック ハウジングソリューションズ株式会社ロゴ">
                 <div class="booth-title small-title">パナソニック ハウジングソリューションズ株式会社</div>
@@ -283,9 +250,9 @@
                 <a href="seminar_panasonic.html" class="btn btn-video">🎥 セミナー動画</a>
                 <a href="products_panasonic.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="noritzlogo.png" alt="株式会社ノーリツロゴ">
                 <div class="booth-title">株式会社ノーリツ</div>
@@ -295,9 +262,9 @@
                 <a href="seminar_noritz.html" class="btn btn-video">🎥 セミナー動画</a>
                 <a href="products_noritz.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="woodlogo.png" alt="朝日ウッドテック株式会社ロゴ">
                 <div class="booth-title">朝日ウッドテック株式会社</div>
@@ -307,9 +274,9 @@
                 <a href="seminar_woodtec.html" class="btn btn-video">🎥 セミナー動画</a>
                 <a href="products_woodtec.html" class="btn btn-products">🛍️ おすすめ商品</a>
             </div>
-        </section>
+        </article>
 
-        <section class="booth">
+        <article class="booth">
             <div class="booth-header">
                 <img class="booth-logo" src="【JPG】SEDIAlogo.jpg" alt="渡辺パイプ株式会社ロゴ">
                 <div class="booth-title">渡辺パイプ株式会社</div>
@@ -318,117 +285,28 @@
             <div class="booth-buttons">
                 <a href="product_sedia.html" class="btn btn-video">🎥 セミナー動画</a>
             </div>
-        </section>
+        </article>
     </main>
 
     <script>
         // 戻るボタン
-        function goBack() { try { window.location.href = "index.html"; } catch(e) { /* ignore */ } }
+        function goBack(){ try{ window.location.href = 'index.html'; }catch(e){} }
 
-        // スライダーの初期化（堅牢: 要素の存在や例外に配慮）
-        (function() {
-            var sliderImages = [
-                "IMG_1185.jpg",
-                "IMG_1220.jpg",
-                "IMG_3380.jpg",
-                "IMG_1310.jpg",
-                "IMG_1222.jpg",
-                "IMG_3380.jpg",
-                "IMG_7761.jpg",
-                "IMG_7839.jpg"
-            ];
-
-            try {
-                var slider = document.getElementById('slider');
-                var dotsWrap = document.getElementById('sliderDots');
-                if (!slider || !dotsWrap) return;
-                var slidesWrap = slider.querySelector('.slides');
-                if (!slidesWrap) return;
-
-                // Build slides and dots
+        // シンプルなスライダー初期化（堅牢）
+        (function(){
+            var imgs = ["IMG_1185.jpg","IMG_1220.jpg","IMG_3380.jpg"];
+            try{
+                var slidesWrap = document.querySelector('.slides');
+                if(!slidesWrap) return;
                 slidesWrap.innerHTML = '';
-                dotsWrap.innerHTML = '';
-                for (var i = 0; i < sliderImages.length; i++) {
-                    var src = sliderImages[i];
-                    var slide = document.createElement('div');
-                    slide.className = 'slide' + (i === 0 ? ' active' : '');
+                for(var i=0;i<imgs.length;i++){
                     var img = document.createElement('img');
-                    img.src = src;
-                    img.alt = 'スライド' + (i + 1);
-                    slide.appendChild(img);
-                    slidesWrap.appendChild(slide);
-
-                    var dot = document.createElement('div');
-                    dot.className = 'dot' + (i === 0 ? ' active' : '');
-                    dot.setAttribute('data-index', String(i));
-                    dotsWrap.appendChild(dot);
+                    img.src = imgs[i];
+                    img.alt = "スライド"+(i+1);
+                    slidesWrap.appendChild(img);
                 }
-
-                var current = 0;
-                var timer = null;
-
-                function show(index) {
-                    var slides = slidesWrap.querySelectorAll('.slide');
-                    var dots = dotsWrap.querySelectorAll('.dot');
-                    for (var j = 0; j < slides.length; j++) {
-                        if (j === index) slides[j].classList.add('active');
-                        else slides[j].classList.remove('active');
-                    }
-                    for (var k = 0; k < dots.length; k++) {
-                        if (k === index) dots[k].classList.add('active');
-                        else dots[k].classList.remove('active');
-                    }
-                    current = index;
-                }
-                function next() { show((current + 1) % sliderImages.length); }
-                function prev() { show((current - 1 + sliderImages.length) % sliderImages.length); }
-                function play() {
-                    stop();
-                    timer = setInterval(next, 4000);
-                }
-                function stop() { if (timer) { clearInterval(timer); timer = null; } }
-
-                var nextBtn = slider.querySelector('.next');
-                var prevBtn = slider.querySelector('.prev');
-                if (nextBtn) nextBtn.addEventListener('click', function(){ next(); play(); });
-                if (prevBtn) prevBtn.addEventListener('click', function(){ prev(); play(); });
-
-                dotsWrap.addEventListener('click', function(e) {
-                    var t = e.target;
-                    if (t && t.classList && t.classList.contains('dot')) {
-                        var idx = parseInt(t.getAttribute('data-index') || '0', 10);
-                        show(idx);
-                        play();
-                    }
-                });
-
-                slider.addEventListener('mouseenter', stop);
-                slider.addEventListener('mouseleave', play);
-
-                play();
-            } catch (err) {
-                if (window.console && console.error) console.error('Slider init error:', err);
-            }
-        })();
-
-        // ブースのフェードイン（JSが落ちても表示は崩れないように、JSは補助的）
-        (function() {
-            try {
-                var booths = document.querySelectorAll('.booth');
-                // 一度全てに animate クラスをつけてから順次除去し、見た目を出す（stagger）
-                for (var i = 0; i < booths.length; i++) {
-                    (function(idx){
-                        var b = booths[idx];
-                        // まず装飾用のクラスを与えておき、後でアニメーション開始
-                        b.classList.add('animate');
-                        setTimeout(function(){
-                            // 当該要素は CSS の animation で表示に移行する
-                            b.classList.remove('animate');
-                        }, 120 + idx * 80);
-                    })(i);
-                }
-            } catch (e) {
-                if (window.console && console.warn) console.warn('Booth animation skipped:', e);
+            }catch(e){
+                if(window.console) console.warn('slider init skipped', e);
             }
         })();
     </script>
